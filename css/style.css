@@ -1070,7 +1070,7 @@ body.is-red-optics .optics-toggle {
 }
 
 /* ---------- 14. Certifications ---------- */
-.cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .cert-card {
   display: flex; flex-direction: column;
 }
