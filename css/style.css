@@ -335,9 +335,9 @@ main, .nav, .footer { position: relative; z-index: 2; }
   background: rgba(12, 12, 16, 0.9);
 }
 .nav__link {
-  padding: 6px 14px; border-radius: 0;
-  font-family: var(--font-mono); font-size: 11.5px; font-weight: 600;
-  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 6px 12px; border-radius: 0;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap;
   color: var(--muted); transition: all 0.2s var(--ease);
 }
 .nav__link:hover { color: var(--fg); background: rgba(255, 255, 255, 0.04); }
@@ -796,6 +796,14 @@ body.is-red-optics .optics-toggle {
   content: "›"; position: absolute; left: 0; color: var(--accent); font-family: var(--font-mono); font-weight: 700;
 }
 .project-card__foot { margin-top: auto; }
+.pub-card__actions {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
 
 /* Supporting Projects */
 .subhead {
@@ -1344,7 +1352,7 @@ body.is-red-optics .optics-toggle {
 .reveal.is-in { opacity: 1; transform: none; }
 
 /* ---------- 20. Responsive Breakpoints ---------- */
-@media (max-width: 1120px) {
+@media (max-width: 1240px) {
   .nav__telemetry { display: none; }
 }
 

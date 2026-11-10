@@ -29,7 +29,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=deploy2" />
+  <link rel="stylesheet" href="css/style.css?v=deploy3" />
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -63,7 +63,7 @@
   <div class="hud-rail" id="hudRail" aria-hidden="true">
     <span class="hud-rail__idx" id="hudIdx">00</span>
     <span class="hud-rail__track"><span class="hud-rail__fill" id="hudFill"></span></span>
-    <span class="hud-rail__total">05</span>
+    <span class="hud-rail__total">06</span>
     <span class="hud-rail__label" id="hudLabel">INTRO</span>
     <span class="hud-rail__pct" id="hudPct">000%</span>
   </div>
@@ -87,6 +87,7 @@
       <!-- Center Tactical Command Bar -->
       <nav class="nav__links" aria-label="Navigasi Utama">
         <a href="#projects" class="nav__link" data-i18n="navProjects">Proyek</a>
+        <a href="#publications" class="nav__link" data-i18n="navPubs">Publikasi</a>
         <a href="#experience" class="nav__link" data-i18n="navExperience">Pengalaman</a>
         <a href="#skills" class="nav__link" data-i18n="navSkills">Keahlian</a>
         <a href="#certifications" class="nav__link" data-i18n="navCerts">Sertifikasi</a>
@@ -127,10 +128,11 @@
   <!-- Mobile Drawer Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#projects"><small>01</small><span data-i18n="navProjects">Proyek</span></a>
-    <a href="#experience"><small>02</small><span data-i18n="navExperience">Pengalaman</span></a>
-    <a href="#skills"><small>03</small><span data-i18n="navSkills">Keahlian</span></a>
-    <a href="#certifications"><small>04</small><span data-i18n="navCerts">Sertifikasi</span></a>
-    <a href="#connect"><small>05</small><span data-i18n="navContact">Kontak</span></a>
+    <a href="#publications"><small>02</small><span data-i18n="navPubs">Publikasi</span></a>
+    <a href="#experience"><small>03</small><span data-i18n="navExperience">Pengalaman</span></a>
+    <a href="#skills"><small>04</small><span data-i18n="navSkills">Keahlian</span></a>
+    <a href="#certifications"><small>05</small><span data-i18n="navCerts">Sertifikasi</span></a>
+    <a href="#connect"><small>06</small><span data-i18n="navContact">Kontak</span></a>
   </div>
 
   <main>
@@ -459,7 +461,86 @@
       </div>
     </section>
 
-    <!-- ============ 02 · EXPERIENCE ============ -->
+    <!-- ============ 02 · PUBLICATIONS & ACHIEVEMENTS ============ -->
+    <section class="section" id="publications" aria-labelledby="publications-title">
+      <div class="container">
+        <header class="sec-head reveal">
+          <span class="section-badge" data-i18n="secPubsBadge">Publikasi &amp; Inovasi Internasional</span>
+          <h2 class="sec-title" id="publications-title">
+            <span data-i18n="secPubsTitlePre">Publikasi &amp;</span>
+            <em data-i18n="secPubsTitleEm">Pencapaian</em>
+          </h2>
+          <p class="sec-desc" data-i18n="secPubsDesc">
+            Kontribusi riset ilmiah dan pengembangan sistem terapan yang dipresentasikan pada konferensi internasional.
+          </p>
+        </header>
+
+        <!-- Featured Publication 1: iCoMB 2026 -->
+        <article class="project-card pub-card reveal" id="pub-icomb-2026">
+          <div class="project-card__top">
+            <div class="project-card__index-wrap">
+              <span class="project-card__index">PUBLICATION 01 // iCoMB 2026</span>
+            </div>
+            <div class="project-card__tags">
+              <span class="badge badge--crimson" data-i18n="pub1Badge1">International Conference</span>
+              <span class="badge badge--amber" data-i18n="pub1Badge2">IoT Smart Biomonitoring</span>
+              <span class="badge badge--amber" data-i18n="pub1Badge3">Decision Support System</span>
+            </div>
+          </div>
+
+          <div class="project-card__body">
+            <div class="project-card__main">
+              <h3 class="project-card__title" data-i18n="pub1Title">Aqualife-EWS-A2SWJ: Smart Biomonitoring &amp; Decision-Support Platform</h3>
+              <p class="project-card__sub" data-i18n="pub1EventSub">International Conference on Marine Biodiversity (iCoMB 2026), Malaysia · September 2026</p>
+              <p class="project-card__summary" data-i18n="pub1Desc">
+                Turut mengembangkan platform berbasis web Early Warning System (EWS) dan Decision Support System (menggunakan algoritma WSM &amp; SAW) yang terintegrasi dengan sensor IoT smart biomonitoring untuk akuakultur laut berkelanjutan (IMTA). Diakui dan dipresentasikan pada konferensi internasional iCoMB 2026 di Malaysia.
+              </p>
+
+              <div class="project-card__foot chips">
+                <span class="chip">International Conference</span>
+                <span class="chip">IoT Smart Biomonitoring</span>
+                <span class="chip">Decision Support System</span>
+                <span class="chip">Laravel</span>
+                <span class="chip">React</span>
+              </div>
+
+              <div class="pub-card__actions">
+                <a href="https://jatengdaily.com/2026/undip-perkuat-riset-akuakultur-berkelanjutan-prof-sapto-paparkan-smart-biomonitoring-di-icomb-2026/" target="_blank" rel="noopener noreferrer" class="btn btn--primary" id="pub1-media-btn">
+                  <span data-i18n="pub1BtnMedia">Media Coverage</span>
+                  <span class="circle-icon">↗</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="project-card__details">
+              <h4 class="project-card__specs-head" data-i18n="pub1SpecsHead">Rincian Publikasi &amp; Tim Riset</h4>
+              <dl class="project-facts">
+                <div class="fact-row">
+                  <dt data-i18n="pub1EventLabel">Konferensi</dt>
+                  <dd data-i18n="pub1EventVal"><b>International Conference on Marine Biodiversity (iCoMB 2026)</b>, Malaysia</dd>
+                </div>
+                <div class="fact-row">
+                  <dt data-i18n="pub1DateLabel">Tanggal</dt>
+                  <dd data-i18n="pub1DateVal">September 2026</dd>
+                </div>
+                <div class="fact-row">
+                  <dt data-i18n="pub1RoleLabel">Peran</dt>
+                  <dd data-i18n="pub1RoleVal"><b>Software Co-Developer &amp; Co-Author</b> (Ce-MEBSA UNDIP Research Team)</dd>
+                </div>
+                <div class="fact-row">
+                  <dt data-i18n="pub1CollabLabel">Kolaborator</dt>
+                  <dd data-i18n="pub1CollabVal">
+                    Prof. Drs. Sapto P. Putro, M.Si., Ph.D., Satrio Adhy, M.Kom., <b>Arsyad G. Saputro, S.Kom.</b>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ 03 · EXPERIENCE ============ -->
     <section class="section" id="experience" aria-labelledby="experience-title">
       <div class="container">
         <header class="sec-head reveal">
@@ -1014,8 +1095,8 @@
   </div>
 
   <!-- Translation Dictionary -->
-  <script src="js/translations.js?v=deploy2"></script>
+  <script src="js/translations.js?v=deploy3"></script>
   <!-- Main Application Logic -->
-  <script src="js/main.js?v=deploy2" defer></script>
+  <script src="js/main.js?v=deploy3" defer></script>
 </body>
 </html>

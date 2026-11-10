@@ -243,6 +243,7 @@
   const SECTORS = [
     { id: "hero", label: "INTRO" },
     { id: "projects", label: "PROJECTS" },
+    { id: "publications", label: "RESEARCH" },
     { id: "experience", label: "EXPERIENCE" },
     { id: "skills", label: "TOOLKIT" },
     { id: "certifications", label: "CREDENTIALS" },

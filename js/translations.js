@@ -6,6 +6,7 @@ const TRANSLATIONS = {
   id: {
     // Navigation
     navProjects: "Proyek",
+    navPubs: "Publikasi",
     navExperience: "Pengalaman",
     navSkills: "Keahlian",
     navCerts: "Sertifikasi",
@@ -117,6 +118,28 @@ const TRANSLATIONS = {
     kalisariDesc: "Website pemesanan jadwal temu (appointment booking) yang menyederhanakan registrasi pasien dan membantu memangkas waktu tunggu di klinik. Dikerjakan full-stack dengan PHP &amp; MySQL.",
     jeparaTitle: "Dinas Perikanan Jepara",
     jeparaDesc: "Basis data spasial Kelautan &amp; Perikanan Kabupaten Jepara di ArcGIS — dari survei lapangan di berbagai sektor hingga data terstruktur yang siap dipetakan.",
+
+    // Publications & Achievements
+    secPubsBadge: "Publikasi & Inovasi Internasional",
+    secPubsTitlePre: "Publikasi &",
+    secPubsTitleEm: "Pencapaian",
+    secPubsDesc: "Kontribusi riset ilmiah dan pengembangan sistem terapan yang dipresentasikan pada konferensi internasional.",
+    pub1Badge1: "International Conference",
+    pub1Badge2: "IoT Smart Biomonitoring",
+    pub1Badge3: "Decision Support System",
+    pub1Title: "Aqualife-EWS-A2SWJ: Smart Biomonitoring & Decision-Support Platform",
+    pub1EventSub: "International Conference on Marine Biodiversity (iCoMB 2026), Malaysia · September 2026",
+    pub1Desc: "Turut mengembangkan platform berbasis web Early Warning System (EWS) dan Decision Support System (menggunakan algoritma WSM &amp; SAW) yang terintegrasi dengan sensor IoT smart biomonitoring untuk akuakultur laut berkelanjutan (IMTA). Diakui dan dipresentasikan pada konferensi internasional iCoMB 2026 di Malaysia.",
+    pub1BtnMedia: "Liputan Media (Media Coverage)",
+    pub1SpecsHead: "Rincian Publikasi & Tim Riset",
+    pub1EventLabel: "Konferensi",
+    pub1EventVal: "<b>International Conference on Marine Biodiversity (iCoMB 2026)</b>, Malaysia",
+    pub1DateLabel: "Tanggal",
+    pub1DateVal: "September 2026",
+    pub1RoleLabel: "Peran",
+    pub1RoleVal: "<b>Software Co-Developer &amp; Co-Author</b> (Ce-MEBSA UNDIP Research Team)",
+    pub1CollabLabel: "Kolaborator",
+    pub1CollabVal: "Prof. Drs. Sapto P. Putro, M.Si., Ph.D., Satrio Adhy, M.Kom., <b>Arsyad G. Saputro, S.Kom.</b>",
 
     // Experience
     secExpBadge: "Perjalanan Karir",
@@ -238,6 +261,7 @@ const TRANSLATIONS = {
   en: {
     // Navigation
     navProjects: "Projects",
+    navPubs: "Publications",
     navExperience: "Experience",
     navSkills: "Skills",
     navCerts: "Certifications",
@@ -349,6 +373,28 @@ const TRANSLATIONS = {
     kalisariDesc: "An appointment booking website that simplifies patient registration and helps reduce waiting times at the clinic. Built full-stack with PHP &amp; MySQL.",
     jeparaTitle: "Jepara Fisheries & Marine Department",
     jeparaDesc: "Marine &amp; Fisheries spatial database for Jepara Regency in ArcGIS — from field surveys across several sectors to structured, map-ready data.",
+
+    // Publications & Achievements
+    secPubsBadge: "Featured Publication & International Innovation",
+    secPubsTitlePre: "Publications &",
+    secPubsTitleEm: "Achievements",
+    secPubsDesc: "Applied systems engineering and scientific research contributions presented at international conferences.",
+    pub1Badge1: "International Conference",
+    pub1Badge2: "IoT Smart Biomonitoring",
+    pub1Badge3: "Decision Support System",
+    pub1Title: "Aqualife-EWS-A2SWJ: Smart Biomonitoring & Decision-Support Platform",
+    pub1EventSub: "International Conference on Marine Biodiversity (iCoMB 2026), Malaysia · September 2026",
+    pub1Desc: "Co-developed a web-based Early Warning System (EWS) and Decision Support System (using WSM &amp; SAW algorithms) integrated with IoT smart biomonitoring sensors for sustainable marine aquaculture (IMTA). Recognized and presented at iCoMB 2026 in Malaysia.",
+    pub1BtnMedia: "Media Coverage",
+    pub1SpecsHead: "Publication & Research Team Details",
+    pub1EventLabel: "Event / Publisher",
+    pub1EventVal: "<b>International Conference on Marine Biodiversity (iCoMB 2026)</b>, Malaysia",
+    pub1DateLabel: "Date",
+    pub1DateVal: "September 2026",
+    pub1RoleLabel: "Role",
+    pub1RoleVal: "<b>Software Co-Developer &amp; Co-Author</b> (Ce-MEBSA UNDIP Research Team)",
+    pub1CollabLabel: "Collaborators",
+    pub1CollabVal: "Prof. Drs. Sapto P. Putro, M.Si., Ph.D., Satrio Adhy, M.Kom., <b>Arsyad G. Saputro, S.Kom.</b>",
 
     // Experience
     secExpBadge: "Career History",
