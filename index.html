@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arsyad Grant Saputro — Informatics Graduate & Full-Stack Developer</title>
+  <meta name="description" content="Portofolio Arsyad Grant Saputro, lulusan Informatika & Full-Stack Developer dari Semarang. Spesialisasi dalam web development, database, dan system design (ICONIX & UML)." />
+  <meta name="author" content="Arsyad Grant Saputro" />
+  <meta name="theme-color" content="#060608" />
+  
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Arsyad Grant Saputro — Full-Stack Developer" />
+  <meta property="og:description" content="Informatics Graduate & Full-Stack Developer. Web development, database, and system design." />
+  <meta property="og:image" content="assets/images/profile.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Arsyad Grant Saputro — Full-Stack Developer" />
+  <meta name="twitter:description" content="Informatics Graduate & Full-Stack Developer. Web development, database, and system design." />
+  <meta name="twitter:image" content="assets/images/profile.jpg" />
+  
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='2' fill='%23060608' stroke='%23ff1e1e' stroke-width='3'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='monospace' font-weight='700' font-size='26' fill='%23ff1e1e'%3EAG%3C/text%3E%3C/svg%3E" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css?v=deploy2" />
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Arsyad Grant Saputro",
+    "jobTitle": "Full-Stack Developer",
+    "email": "mailto:arsyadgrants@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Semarang", "addressCountry": "ID" },
+    "sameAs": ["https://linkedin.com/in/arsyadgrants", "https://github.com/Syadgs"],
+    "knowsAbout": ["Laravel", "React", "Next.js", "PHP", "JavaScript", "TypeScript", "MySQL", "PostgreSQL", "Supabase", "System Design", "ICONIX Process", "UML"]
+  }
+  </script>
+</head>
+<body>
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="tactical-grid-bg" aria-hidden="true"></div>
+
+  <!-- ============ Darknode HUD Layer: scroll progress, sector rail, watermark, scan sweep, cursor ============ -->
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgressBar"></span></div>
+  <div class="scan-sweep" id="scanSweep" aria-hidden="true"></div>
+  <div class="section-watermark" id="sectionWatermark" aria-hidden="true">00</div>
+
+  <div class="hud-rail" id="hudRail" aria-hidden="true">
+    <span class="hud-rail__idx" id="hudIdx">00</span>
+    <span class="hud-rail__track"><span class="hud-rail__fill" id="hudFill"></span></span>
+    <span class="hud-rail__total">05</span>
+    <span class="hud-rail__label" id="hudLabel">INTRO</span>
+    <span class="hud-rail__pct" id="hudPct">000%</span>
+  </div>
+
+  <div class="hud-cursor" id="hudCursor" aria-hidden="true">
+    <span class="hud-cursor__line hud-cursor__line--x" id="hudLineX"></span>
+    <span class="hud-cursor__line hud-cursor__line--y" id="hudLineY"></span>
+    <span class="hud-cursor__reticle" id="hudReticle"><i></i><i></i><i></i><i></i></span>
+    <span class="hud-cursor__dot" id="hudDot"></span>
+    <span class="hud-cursor__label" id="hudCursorLabel">X:0000 Y:0000</span>
+  </div>
+
+  <!-- ============ Navigation (Tactical Command Bar) ============ -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#hero" class="nav__brand" id="nav-brand" aria-label="Kembali ke beranda">
+        <span class="nav__logo">AG</span>
+        <span>ARSYAD // GRANT</span>
+      </a>
+
+      <!-- Center Tactical Command Bar -->
+      <nav class="nav__links" aria-label="Navigasi Utama">
+        <a href="#projects" class="nav__link" data-i18n="navProjects">Proyek</a>
+        <a href="#experience" class="nav__link" data-i18n="navExperience">Pengalaman</a>
+        <a href="#skills" class="nav__link" data-i18n="navSkills">Keahlian</a>
+        <a href="#certifications" class="nav__link" data-i18n="navCerts">Sertifikasi</a>
+        <a href="#connect" class="nav__link" data-i18n="navContact">Kontak</a>
+      </nav>
+
+      <div class="nav__actions">
+        <!-- Live Telemetry Readout -->
+        <div class="nav__telemetry" id="navTelemetry" aria-hidden="true">
+          <span class="telemetry-dot"></span>
+          <span id="coordReadout">X:0000 Y:0000</span>
+        </div>
+
+        <!-- Darknode Red Optics Toggle -->
+        <button type="button" class="optics-toggle" id="opticsToggle" aria-pressed="false" title="Toggle Night-Vision Red Optics">
+          [OPTICS: STD]
+        </button>
+
+        <!-- Bilingual Language Toggle -->
+        <div class="lang-toggle" id="langToggle" role="group" aria-label="Switch Language / Ganti Bahasa">
+          <button type="button" class="lang-btn is-active" data-lang="id" aria-pressed="true">ID</button>
+          <span class="lang-sep">/</span>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+
+        <a href="#connect" class="nav__status" id="nav-status">
+          <span class="pulse-dot"></span>
+          <span data-i18n="navStatus">Siap Bekerja</span>
+        </a>
+
+        <button class="nav__toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#projects"><small>01</small><span data-i18n="navProjects">Proyek</span></a>
+    <a href="#experience"><small>02</small><span data-i18n="navExperience">Pengalaman</span></a>
+    <a href="#skills"><small>03</small><span data-i18n="navSkills">Keahlian</span></a>
+    <a href="#certifications"><small>04</small><span data-i18n="navCerts">Sertifikasi</span></a>
+    <a href="#connect"><small>05</small><span data-i18n="navContact">Kontak</span></a>
+  </div>
+
+  <main>
+    <!-- ============ 00 · HERO SECTION ============ -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero__grid">
+          <!-- Left: Simplified Name, Role, & Introduction -->
+          <div class="hero__content">
+            <!-- Tactical Telemetry Tag -->
+            <div class="hero__editorial-tag reveal" style="--d:.04s">
+              <span class="mono-badge">SYS // 01</span>
+              <span class="editorial-sep">//</span>
+              <span class="tag-title">SEMARANG, ID</span>
+              <span class="editorial-sep">//</span>
+              <span class="tag-coords">06°58'S 110°25'E</span>
+            </div>
+
+            <!-- Layered Tactical Display Headline: Nama -->
+            <h1 class="hero__title reveal" id="hero-title" style="--d:.08s">
+              <span class="title-row">Arsyad Grant</span>
+              <span class="title-row title-row--sub">
+                <span class="title-outline">Saputro</span><span class="dot">.</span>
+              </span>
+            </h1>
+
+            <!-- Introduction Subtitle / Role -->
+            <p class="hero__role reveal" style="--d:.14s">
+              <span data-i18n="heroRolePre">Informatics Graduate</span>
+              <span class="serif-em" data-i18n="heroRoleAnd">&amp;</span>
+              <span data-i18n="heroRolePost">Full-Stack Developer</span>
+            </p>
+
+            <!-- Clean Introduction -->
+            <p class="hero__bio reveal" style="--d:.20s" data-i18n="heroBio">
+              Lulusan S.Kom. Informatika Universitas Diponegoro (IPK 3.55) yang senang memahami cara kerja sistem sebelum membangunnya: mendengarkan calon pengguna, memetakan kebutuhan secara terstruktur, lalu memastikan hasilnya benar-benar bekerja sesuai yang dijanjikan. Berpengalaman di pengembangan web full-stack, pengumpulan data lapangan, dan perancangan sistem pendukung keputusan untuk sektor kesehatan, akuakultur, dan layanan masyarakat.
+            </p>
+
+            <!-- Call to Actions -->
+            <div class="hero__cta reveal" style="--d:.26s">
+              <a href="#projects" class="btn btn--primary" id="cta-projects">
+                <span data-i18n="btnProjects">Jelajahi Proyek</span>
+                <span class="circle-icon">↗</span>
+              </a>
+
+              <button type="button" class="btn btn--ghost" id="cta-resume" data-open-resume>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>
+                <span data-i18n="btnResume">Lihat Resume</span>
+              </button>
+
+              <a href="#connect" class="btn btn--link" id="cta-contact">
+                <span data-i18n="btnContact">Hubungi Saya</span> →
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Profile Photo (Tactical Viewfinder Dossier) -->
+          <div class="hero__showcase reveal" style="--d:.25s">
+            <div class="showcase-card showcase-card--photo" id="showcaseCard">
+              <div class="showcase-card__bar">
+                <div class="showcase-brand-mark">
+                  <span class="telemetry-dot"></span>
+                  <span class="brand-badge-text">CAM.01 // ARSYAD.G.S</span>
+                </div>
+                <span class="showcase-status">OPTICS // LOCKED</span>
+              </div>
+
+              <figure class="profile-photo">
+                <span class="viewfinder-reticle vf-tl" aria-hidden="true"></span>
+                <span class="viewfinder-reticle vf-tr" aria-hidden="true"></span>
+                <span class="viewfinder-reticle vf-bl" aria-hidden="true"></span>
+                <span class="viewfinder-reticle vf-br" aria-hidden="true"></span>
+                <span class="viewfinder-crosshair" aria-hidden="true"></span>
+                <img src="assets/images/profile.png?v=hd" onerror="this.onerror=null;this.src='assets/images/profile.jpg?v=hd'" alt="Foto Arsyad Grant Saputro" width="1016" height="1270" />
+              </figure>
+
+              <!-- Minimal Bottom Bar with Social Buttons -->
+              <div class="showcase-profile-details">
+                <!-- Circular Social Buttons -->
+                <div class="profile-social-icons">
+                  <a href="https://linkedin.com/in/arsyadgrants" target="_blank" rel="noopener me" class="social-circle-btn" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                  </a>
+                  <a href="https://github.com/Syadgs" target="_blank" rel="noopener me" class="social-circle-btn" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3"/></svg>
+                  </a>
+                  <a href="mailto:arsyadgrants@gmail.com" class="social-circle-btn" aria-label="Email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="stats reveal">
+          <div class="stat">
+            <div class="stat__num">5</div>
+            <div class="stat__label" data-i18n="statProjects">Proyek dibangun</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">4</div>
+            <div class="stat__label" data-i18n="statExp">Pengalaman kerja &amp; org.</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">3</div>
+            <div class="stat__label" data-i18n="statCerts">Sertifikasi resmi</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">20<sup>+</sup></div>
+            <div class="stat__label" data-i18n="statTech">Tools &amp; teknologi</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TECH MARQUEE ============ -->
+    <div class="marquee" aria-label="Teknologi yang digunakan">
+      <div class="marquee__track" id="marqueeTrack">
+        <span class="marquee__item"><img src="https://cdn.simpleicons.org/laravel" alt="" loading="lazy" />Laravel</span>
+        <span class="marquee__item"><img src="https://cdn.simpleicons.org/react" alt="" loading="lazy" />React.js</span>
+        <span class="marquee__item"><img src="https://cdn.simpleicons.org/nextdotjs/white" alt="" loading="lazy" />Next.js</span>
+        <span class="marquee__item"><img src="https://cdn.simpleicons.org/typescript" alt="" loading="lazy" />TypeScript</span>
+        <span class="marquee__item"><img src="https://cdn.simpleicons.org/php" alt="" loading="lazy" />PHP</span>
+        <span class="marquee__item"><img src="https://cdn.simpleicons.org/javascript" alt="" loading="lazy" />JavaScript</span>
+        <span class="marquee__item"><img src="https://cdn.simpleicons.org/tailwindcss" alt="" loading="lazy" />Tailwind CSS</span>
+        <span class="marquee__item"><img src="https://cdn.simpleicons.org/inertia" alt="" loading="lazy" />Inertia.js</span>
+        <span class="marquee__item"><img src="https://cdn.simpleicons.org/mysql" alt="" loading="lazy" />MySQL</span>
+        <span class="marquee__item"><img src="https://cdn.simpleicons.org/postgresql" alt="" loading="lazy" />PostgreSQL</span>
+        <span class="marquee__item"><img src="https://cdn.simpleicons.org/supabase" alt="" loading="lazy" />Supabase</span>
+        <span class="marquee__item"><img src="https://cdn.simpleicons.org/python" alt="" loading="lazy" />Python</span>
+        <span class="marquee__item"><img src="https://cdn.simpleicons.org/git" alt="" loading="lazy" />Git</span>
+        <span class="marquee__item"><img src="https://cdn.simpleicons.org/wordpress/white" alt="" loading="lazy" />WordPress</span>
+      </div>
+    </div>
+
+    <!-- ============ 01 · FEATURED PROJECTS ============ -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <header class="sec-head reveal">
+          <span class="section-badge" data-i18n="secProjectsBadge">Karya Terpilih</span>
+          <h2 class="sec-title" id="projects-title">
+            <span data-i18n="secProjectsTitlePre">Proyek</span>
+            <em data-i18n="secProjectsTitleEm">Unggulan</em>
+          </h2>
+          <p class="sec-desc" data-i18n="secProjectsDesc">
+            Dari pemodelan kebutuhan hingga sistem yang berjalan di produksi — dua proyek paling representatif dari CV saya.
+          </p>
+        </header>
+
+        <!-- Project 1: AquaLife -->
+        <article class="project-card reveal" id="project-aqualife">
+          <div class="project-card__top">
+            <div class="project-card__index-wrap">
+              <span class="project-card__index">PROJECT 01</span>
+            </div>
+            <div class="project-card__tags">
+              <span class="badge badge--amber" data-i18n="aquaBadge1">Skripsi · S1</span>
+              <span class="badge badge--crimson" data-i18n="aquaBadge2">Decision Support System</span>
+            </div>
+          </div>
+
+          <div class="project-card__body">
+            <div class="project-card__main">
+              <h3 class="project-card__title">AquaLife</h3>
+              <p class="project-card__sub" data-i18n="aquaSub">Aquaculture Water Quality Assessment</p>
+              <p class="project-card__summary" data-i18n="aquaSummary">
+                Aplikasi web untuk menilai kualitas air kawasan budidaya perikanan dengan metode WSM (Weighted Sum Model) dan SAW (Simple Additive Weighting). Dikembangkan sebagai skripsi di Ce-MEBSA UNDIP, berawal dari prototipe yang saya buat saat menjadi anggota tim riset IoT, lalu diperluas menjadi platform lengkap dengan sistem langganan.
+              </p>
+
+              <div class="project-card__foot chips">
+                <span class="chip">Laravel</span>
+                <span class="chip">Inertia.js</span>
+                <span class="chip">React</span>
+                <span class="chip">MySQL</span>
+                <span class="chip">Midtrans</span>
+              </div>
+            </div>
+
+            <div class="project-card__details">
+              <h4 class="project-card__specs-head" data-i18n="projectSpecsHead">Arsitektur &amp; Rekayasa Sistem</h4>
+              <dl class="project-facts">
+                <div class="fact-row">
+                  <dt data-i18n="aquaCtxLabel">Konteks</dt>
+                  <dd data-i18n="aquaCtxDesc">Skripsi S1 · Ce-MEBSA UNDIP · Agu 2025 — Sep 2026</dd>
+                </div>
+                <div class="fact-row">
+                  <dt data-i18n="aquaUsersLabel">Pengguna</dt>
+                  <dd data-i18n="aquaUsersDesc">Perusahaan budidaya, peneliti, dan anggota berlangganan (membership).</dd>
+                </div>
+                <div class="fact-row">
+                  <dt data-i18n="aquaFeatLabel">Fitur Inti</dt>
+                  <dd>
+                    <ul class="fact-list">
+                      <li data-i18n="aquaFeat1">Penilaian kualitas air berbasis metode <b>WSM &amp; SAW</b></li>
+                      <li data-i18n="aquaFeat2">Hak akses berbasis peran (role-based access control)</li>
+                      <li data-i18n="aquaFeat3">Pembayaran langganan terintegrasi <b>Midtrans</b></li>
+                    </ul>
+                  </dd>
+                </div>
+                <div class="fact-row">
+                  <dt data-i18n="aquaRoleLabel">Peran &amp; Metodologi</dt>
+                  <dd data-i18n="aquaRoleDesc">
+                    Memodelkan kebutuhan dari wawancara stakeholder menggunakan <b>ICONIX Process</b> (10 use cases, SRS, dan diagram UML).
+                  </dd>
+                </div>
+                <div class="fact-row">
+                  <dt data-i18n="aquaValLabel">Validasi &amp; QA</dt>
+                  <dd data-i18n="aquaValDesc">Diuji secara menyeluruh melalui test cases dan black-box testing.</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: RWPay -->
+        <article class="project-card reveal" id="project-rwpay">
+          <div class="project-card__top">
+            <div class="project-card__index-wrap">
+              <span class="project-card__index">PROJECT 02</span>
+            </div>
+            <div class="project-card__tags">
+              <span class="badge badge--crimson" data-i18n="rwBadge1">Kuliah Kerja Nyata (KKN)</span>
+              <span class="badge badge--amber" data-i18n="rwBadge2">Fintech Komunitas</span>
+            </div>
+          </div>
+
+          <div class="project-card__body">
+            <div class="project-card__main">
+              <h3 class="project-card__title">RWPay</h3>
+              <p class="project-card__sub" data-i18n="rwSub">Digitalisasi Buku Kas Warga RW 08 Sambiroto</p>
+              <p class="project-card__summary" data-i18n="rwSummary">
+                Aplikasi web yang mendigitalisasi pembukuan iuran kas warga RW 08 Sambiroto, Semarang. Dibangun saat program KKN untuk menggantikan buku kas kertas dengan sistem terpusat yang transparan — pengurus dapat memantau siapa yang sudah membayar, siapa yang menunggak, dan menerbitkan laporan dalam hitungan detik.
+              </p>
+
+              <div class="project-card__foot chips">
+                <span class="chip">Next.js</span>
+                <span class="chip">TypeScript</span>
+                <span class="chip">Tailwind CSS</span>
+                <span class="chip">Supabase</span>
+                <span class="chip">PostgreSQL</span>
+              </div>
+            </div>
+
+            <div class="project-card__details">
+              <h4 class="project-card__specs-head" data-i18n="projectSpecsRw">Arsitektur &amp; Fitur Utama</h4>
+              <dl class="project-facts">
+                <div class="fact-row">
+                  <dt data-i18n="rwCtxLabel">Konteks</dt>
+                  <dd data-i18n="rwCtxDesc">Program KKN · Kelurahan Sambiroto, Semarang</dd>
+                </div>
+                <div class="fact-row">
+                  <dt data-i18n="rwProbLabel">Masalah</dt>
+                  <dd data-i18n="rwProbDesc">Iuran warga dicatat manual di buku kertas — sulit dilacak, rawan selisih, dan kurang transparan.</dd>
+                </div>
+                <div class="fact-row">
+                  <dt data-i18n="rwFeatLabel">Fitur Utama</dt>
+                  <dd>
+                    <ul class="fact-list">
+                      <li data-i18n="rwFeat1">Manajemen data warga</li>
+                      <li data-i18n="rwFeat2">Pelacakan pembayaran (lunas, pending, menunggak)</li>
+                      <li data-i18n="rwFeat5">Dashboard rekap pemasukan &amp; tunggakan</li>
+                      <li data-i18n="rwFeat3">Pembuatan tagihan bulanan otomatis dengan fungsi PostgreSQL</li>
+                      <li data-i18n="rwFeat4">Ekspor laporan kas ke Excel &amp; PDF</li>
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </article>
+
+        <!-- Supporting Projects Grid -->
+        <div class="subhead reveal" data-i18n="secSupporting">Proyek Pendukung Lainnya</div>
+
+        <div class="mini-grid">
+          <article class="mini-card reveal" id="project-iot-dashboard">
+            <div class="mini-card__body">
+              <div class="mini-card__head">
+                <span class="badge badge--crimson">IoT / Research</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+              </div>
+              <h4 data-i18n="iotTitle">Dashboard Monitoring IoT Ce-MEBSA</h4>
+              <p data-i18n="iotDesc">Ikut membangun dashboard web untuk memantau sensor kualitas air pada keramba Smart Robotic IMTA: live monitoring, grafik &amp; tampilan numerik, grafik analisis, akses multi-user, alarm, dan pelacakan posisi GPS.</p>
+              <div class="mini-card__chips chips">
+                <span class="chip">IoT Sensors</span>
+                <span class="chip">Live Charts</span>
+                <span class="chip">GPS Tracking</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="mini-card reveal" style="--d:.08s" id="project-kalisari">
+            <div class="mini-card__body">
+              <div class="mini-card__head">
+                <span class="badge badge--amber">Healthcare</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+              </div>
+              <h4 data-i18n="kalisariTitle">Klinik Pratama Kalisari Healthcare</h4>
+              <p data-i18n="kalisariDesc">Website pemesanan jadwal temu (appointment booking) yang menyederhanakan registrasi pasien dan membantu memangkas waktu tunggu di klinik. Dikerjakan full-stack dengan PHP &amp; MySQL.</p>
+              <div class="mini-card__chips chips">
+                <span class="chip">PHP</span>
+                <span class="chip">MySQL</span>
+                <span class="chip">Booking System</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="mini-card reveal" style="--d:.16s" id="project-jepara">
+            <div class="mini-card__body">
+              <div class="mini-card__head">
+                <span class="badge badge--crimson">GIS / Spatial</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+              </div>
+              <h4 data-i18n="jeparaTitle">Dinas Perikanan Jepara</h4>
+              <p data-i18n="jeparaDesc">Basis data spasial Kelautan &amp; Perikanan Kabupaten Jepara di ArcGIS — dari survei lapangan di berbagai sektor hingga data terstruktur yang siap dipetakan.</p>
+              <div class="mini-card__chips chips">
+                <span class="chip">ArcGIS</span>
+                <span class="chip">Spatial Database</span>
+                <span class="chip">Field Survey</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 · EXPERIENCE ============ -->
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <header class="sec-head reveal">
+          <span class="section-badge" data-i18n="secExpBadge">Perjalanan Karir</span>
+          <h2 class="sec-title" id="experience-title">
+            <span data-i18n="secExpTitlePre">Pengalaman</span>
+            <em data-i18n="secExpTitleEm">Kerja</em>
+            <span data-i18n="secExpTitlePost">&amp; Organisasi</span>
+          </h2>
+          <p class="sec-desc" data-i18n="secExpDesc">
+            Pengalaman nyata menerjemahkan kebutuhan operasional menjadi sistem digital terstruktur.
+          </p>
+        </header>
+
+        <ol class="timeline">
+          <!-- Job 0: Ce-MEBSA UNDIP (IoT Research Team Member) -->
+          <li class="timeline-item reveal">
+            <div class="timeline-when">
+              <div class="timeline-date" data-i18n="exp0Date">Jan 2025 — Sep 2026</div>
+              <div class="timeline-dur" data-i18n="exp0Dur">TIM RISET</div>
+            </div>
+            <span class="timeline-dot" aria-hidden="true"></span>
+            
+            <div class="timeline-card">
+              <div class="timeline-card__inner">
+                <h3 class="timeline-role" data-i18n="exp0Role">IoT Research Team Member</h3>
+                <div class="timeline-org">
+                  <span data-i18n="exp0Org">Ce-MEBSA UNDIP</span>
+                  <span class="sep">/</span>
+                  <span class="type-tag" data-i18n="exp0Type">Riset &amp; Pengembangan</span>
+                </div>
+                <p class="timeline-desc" data-i18n="exp0Desc">
+                  Anggota tim riset IoT untuk riset keramba Smart Robotic IMTA (Integrated Multi-Trophic Aquaculture) di Ce-MEBSA UNDIP.
+                </p>
+                <ul class="timeline-points" data-i18n="exp0Points">
+                  <li>Membantu instalasi sensor kualitas air di lapangan untuk sistem pemantauan IoT keramba.</li>
+                  <li>Ikut membangun dashboard monitoring berbasis web di bawah bimbingan mentor: live monitoring, grafik &amp; tampilan numerik, grafik analisis, akses multi-user, alarm, dan pelacakan posisi GPS.</li>
+                  <li>Mengembangkan prototipe awal web penilaian kualitas air, yang kemudian saya perluas menjadi <b>AquaLife</b> (metode WSM &amp; SAW) sebagai skripsi.</li>
+                </ul>
+                <div class="chips">
+                  <span class="chip">IoT Monitoring</span>
+                  <span class="chip">Web Dashboard</span>
+                  <span class="chip">GPS Tracking</span>
+                  <span class="chip">WSM &amp; SAW</span>
+                </div>
+              </div>
+              <!-- Slot Gambar/Dokumentasi Pengalaman 0: Ce-MEBSA UNDIP -->
+              <div class="timeline-image-slot" data-open-cert="assets/images/experience/cemebsa.jpg?v=2" data-cert-name="IoT Research Team Member — Ce-MEBSA UNDIP">
+                <img src="assets/images/experience/cemebsa.jpg?v=2" alt="Instalasi Sensor Kualitas Air IoT — Ce-MEBSA UNDIP" style="object-position: center 65%" loading="lazy" />
+              </div>
+            </div>
+          </li>
+
+          <!-- Job 1: Kalisari -->
+          <li class="timeline-item reveal" style="--d:.06s">
+            <div class="timeline-when">
+              <div class="timeline-date" data-i18n="exp1Date">Jan 2025 — Feb 2025</div>
+              <div class="timeline-dur" data-i18n="exp1Dur">2 BULAN</div>
+            </div>
+            <span class="timeline-dot" aria-hidden="true"></span>
+            
+            <div class="timeline-card">
+              <div class="timeline-card__inner">
+                <h3 class="timeline-role" data-i18n="exp1Role">Web Developer Intern</h3>
+                <div class="timeline-org">
+                  <span data-i18n="exp1Org">Klinik Pratama Kalisari Healthcare</span>
+                  <span class="sep">/</span>
+                  <span class="type-tag" data-i18n="exp1Type">Magang</span>
+                </div>
+                <p class="timeline-desc" data-i18n="exp1Desc">
+                  Magang sebagai web developer untuk mendigitalkan alur pendaftaran pasien di klinik pratama.
+                </p>
+                <ul class="timeline-points" data-i18n="exp1Points">
+                  <li>Mengembangkan website pemesanan jadwal temu (appointment booking) untuk menyederhanakan registrasi pasien dan membantu mengurangi waktu tunggu di klinik.</li>
+                  <li>Berkontribusi pada pengembangan full-stack — dari antarmuka hingga logika backend — untuk fitur booking layanan kesehatan.</li>
+                  <li>Menggunakan PHP dan MySQL untuk membangun aplikasi dan mengelola basis datanya.</li>
+                </ul>
+                <div class="chips">
+                  <span class="chip">PHP</span>
+                  <span class="chip">MySQL</span>
+                  <span class="chip">Full-Stack</span>
+                  <span class="chip">Appointment Booking</span>
+                </div>
+              </div>
+              <!-- Slot Gambar/Dokumentasi Pengalaman 1: Kalisari Healthcare (2 Foto) -->
+              <div class="timeline-image-slot timeline-image-slot--duo">
+                <div class="timeline-image-item" data-open-cert="assets/images/experience/kalisari-2.jpg?v=2" data-cert-name="Klinik Pratama Kalisari Healthcare — Dokumentasi 1">
+                  <img src="assets/images/experience/kalisari-2.jpg?v=2" alt="Dokumentasi Magang Klinik Pratama Kalisari Healthcare 1" style="object-position: center 60%" loading="lazy" />
+                </div>
+                <div class="timeline-image-item" data-open-cert="assets/images/experience/kalisari.jpg?v=2" data-cert-name="Klinik Pratama Kalisari Healthcare — Dokumentasi 2">
+                  <img src="assets/images/experience/kalisari.jpg?v=2" alt="Dokumentasi Magang Klinik Pratama Kalisari Healthcare 2" style="object-position: center 45%" loading="lazy" />
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Job 2: Dinas Perikanan Jepara -->
+          <li class="timeline-item reveal" style="--d:.08s">
+            <div class="timeline-when">
+              <div class="timeline-date" data-i18n="exp2Date">Jul 2024 — Agu 2024</div>
+              <div class="timeline-dur" data-i18n="exp2Dur">2 BULAN</div>
+            </div>
+            <span class="timeline-dot" aria-hidden="true"></span>
+            
+            <div class="timeline-card">
+              <div class="timeline-card__inner">
+                <h3 class="timeline-role" data-i18n="exp2Role">Spatial Database Developer Intern</h3>
+                <div class="timeline-org">
+                  <span data-i18n="exp2Org">Dinas Perikanan Jepara</span>
+                  <span class="sep">/</span>
+                  <span class="type-tag" data-i18n="exp2Type">Magang</span>
+                </div>
+                <p class="timeline-desc" data-i18n="exp2Desc">
+                  Magang pada pengembangan basis data spasial sektor kelautan dan perikanan Kabupaten Jepara.
+                </p>
+                <ul class="timeline-points" data-i18n="exp2Points">
+                  <li>Membantu membangun basis data spasial Kelautan &amp; Perikanan Kabupaten Jepara di ArcGIS, menyusun data hasil lapangan ke dalam format terstruktur yang siap dipetakan.</li>
+                  <li>Melakukan survei lapangan ke berbagai sektor di Kabupaten Jepara untuk mengumpulkan data sumber.</li>
+                </ul>
+                <div class="chips">
+                  <span class="chip">ArcGIS</span>
+                  <span class="chip">Spatial Database</span>
+                  <span class="chip">GIS Mapping</span>
+                  <span class="chip">Field Survey</span>
+                </div>
+              </div>
+              <!-- Slot Gambar/Dokumentasi Pengalaman 2: Dinas Perikanan Jepara -->
+              <div class="timeline-image-slot" data-open-cert="assets/images/experience/jepara.jpg?v=2" data-cert-name="Spatial Database Developer Intern — Dinas Perikanan Jepara">
+                <img src="assets/images/experience/jepara.jpg?v=2" alt="Dokumentasi Magang Dinas Perikanan Jepara" style="object-position: center 45%" loading="lazy" />
+              </div>
+            </div>
+          </li>
+
+          <!-- Job 3: HMIF Undip -->
+          <li class="timeline-item reveal" style="--d:.16s">
+            <div class="timeline-when">
+              <div class="timeline-date" data-i18n="exp3Date">Jan 2023 — Feb 2024</div>
+              <div class="timeline-dur" data-i18n="exp3Dur">1 TAHUN</div>
+            </div>
+            <span class="timeline-dot" aria-hidden="true"></span>
+            
+            <div class="timeline-card">
+              <div class="timeline-card__inner">
+                <h3 class="timeline-role" data-i18n="exp3Role">Staff of Research and Development</h3>
+                <div class="timeline-org">
+                  <span data-i18n="exp3Org">Himpunan Mahasiswa Informatika (HMIF) Undip</span>
+                  <span class="sep">/</span>
+                  <span class="type-tag" data-i18n="exp3Type">Organisasi</span>
+                </div>
+                <p class="timeline-desc" data-i18n="exp3Desc">
+                  Staf bidang Riset &amp; Pengembangan (Litbang) Himpunan Mahasiswa Informatika Undip.
+                </p>
+                <ul class="timeline-points" data-i18n="exp3Points">
+                  <li>Melakukan riset organisasi dan mengumpulkan umpan balik anggota untuk mendukung restrukturisasi dan perbaikan fungsi departemen HMIF.</li>
+                  <li>Melaksanakan evaluasi kinerja berkala dan menyusun laporan penilaian agar program kerja pengurus tetap selaras dengan kebutuhan anggota.</li>
+                </ul>
+                <div class="chips">
+                  <span class="chip">Organizational Research</span>
+                  <span class="chip">Data Evaluation</span>
+                  <span class="chip">Teamwork</span>
+                </div>
+              </div>
+              <!-- Slot Gambar/Dokumentasi Pengalaman 3: HMIF Undip -->
+              <div class="timeline-image-slot" data-open-cert="assets/images/experience/hmif.jpg?v=2" data-cert-name="Staff of Research and Development — HMIF Undip">
+                <img src="assets/images/experience/hmif.jpg?v=2" alt="Dokumentasi HMIF Universitas Diponegoro" style="object-position: center 48%" loading="lazy" />
+              </div>
+            </div>
+          </li>
+        </ol>
+
+        <!-- Education -->
+        <div class="subhead reveal" data-i18n="secEducation">Pendidikan</div>
+        <article class="edu-card reveal" id="education-undip">
+          <div class="edu-card__when">
+            <div class="timeline-date" data-i18n="eduDate">Agu 2022 — Sep 2026</div>
+            <div class="edu-card__gpa"><small data-i18n="eduGpaLabel">IPK</small><b>3.55</b><span>/ 4.00</span></div>
+          </div>
+          <div class="edu-card__main">
+            <h3 class="timeline-role" data-i18n="eduDegree">S.Kom. Informatika</h3>
+            <div class="timeline-org">
+              <span data-i18n="eduSchool">Universitas Diponegoro</span>
+              <span class="sep">/</span>
+              <span class="type-tag">Semarang</span>
+            </div>
+            <dl class="project-facts">
+              <div class="fact-row">
+                <dt data-i18n="eduThesisLabel">Skripsi</dt>
+                <dd data-i18n="eduThesisDesc"><b>AquaLife</b> — aplikasi penilaian kualitas air kawasan budidaya perikanan dengan metode WSM &amp; SAW.</dd>
+              </div>
+              <div class="fact-row">
+                <dt data-i18n="eduCourseLabel">Mata Kuliah Relevan</dt>
+                <dd>
+                  <div class="chips">
+                    <span class="chip">Software Engineering</span>
+                    <span class="chip">Platform-Based Development</span>
+                    <span class="chip">Software Testing</span>
+                    <span class="chip">Software Quality Assurance</span>
+                    <span class="chip">Software Development Methods</span>
+                    <span class="chip">Project Management</span>
+                  </div>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ 03 · SKILLS & TECH STACK ============ -->
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <header class="sec-head reveal">
+          <span class="section-badge" data-i18n="secSkillsBadge">Keahlian &amp; Teknologi</span>
+          <h2 class="sec-title" id="skills-title">
+            <span data-i18n="secSkillsTitlePre">Toolkit</span>
+            <em data-i18n="secSkillsTitleEm">Teknologi</em>
+          </h2>
+          <p class="sec-desc" data-i18n="secSkillsDesc">
+            Kombinasi bahasa pemrograman, basis data, rekayasa sistem, dan soft skills yang saya gunakan.
+          </p>
+        </header>
+
+        <div class="skills-grid reveal">
+          <!-- Group 1 -->
+          <div class="skill-card">
+            <div class="skill-card__header">
+              <span class="skill-card__idx">01 //</span>
+              <span class="skill-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>
+              </span>
+            </div>
+            <h3 data-i18n="skillCat1">Languages &amp; Frameworks</h3>
+            <p data-i18n="skillDesc1">Stack yang saya pakai membangun AquaLife (Laravel + Inertia + React), RWPay (Next.js + TypeScript), dan web booking klinik (PHP).</p>
+            <div class="skill-pills">
+              <span class="skill-pill"><img src="https://cdn.simpleicons.org/php" alt="" loading="lazy" />PHP</span>
+              <span class="skill-pill"><img src="https://cdn.simpleicons.org/javascript" alt="" loading="lazy" />JavaScript</span>
+              <span class="skill-pill"><img src="https://cdn.simpleicons.org/typescript" alt="" loading="lazy" />TypeScript</span>
+              <span class="skill-pill"><img src="https://cdn.simpleicons.org/python" alt="" loading="lazy" />Python</span>
+              <span class="skill-pill"><img src="https://cdn.simpleicons.org/cplusplus" alt="" loading="lazy" />C++</span>
+              <span class="skill-pill"><img src="https://cdn.simpleicons.org/openjdk/white" alt="" loading="lazy" />Java</span>
+              <span class="skill-pill"><img src="https://cdn.simpleicons.org/react" alt="" loading="lazy" />React.js</span>
+              <span class="skill-pill"><img src="https://cdn.simpleicons.org/nextdotjs/white" alt="" loading="lazy" />Next.js</span>
+              <span class="skill-pill"><img src="https://cdn.simpleicons.org/laravel" alt="" loading="lazy" />Laravel</span>
+              <span class="skill-pill"><img src="https://cdn.simpleicons.org/inertia" alt="" loading="lazy" />Inertia.js</span>
+              <span class="skill-pill"><img src="https://cdn.simpleicons.org/tailwindcss" alt="" loading="lazy" />Tailwind CSS</span>
+              <span class="skill-pill"><img src="https://cdn.simpleicons.org/openapiinitiative" alt="" loading="lazy" />RESTful API Design</span>
+            </div>
+          </div>
+
+          <!-- Group 2 -->
+          <div class="skill-card">
+            <div class="skill-card__header">
+              <span class="skill-card__idx">02 //</span>
+              <span class="skill-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              </span>
+            </div>
+            <h3 data-i18n="skillCat2">Database &amp; Tools</h3>
+            <p data-i18n="skillDesc2">Merancang skema relasional, menulis fungsi PostgreSQL untuk otomasi tagihan, mengintegrasikan payment gateway, hingga mengolah data spasial di ArcGIS.</p>
+            <div class="skill-pills">
+              <span class="skill-pill"><img src="https://cdn.simpleicons.org/mysql" alt="" loading="lazy" />MySQL</span>
+              <span class="skill-pill"><img src="https://cdn.simpleicons.org/postgresql" alt="" loading="lazy" />PostgreSQL</span>
+              <span class="skill-pill"><img src="https://cdn.simpleicons.org/supabase" alt="" loading="lazy" />Supabase</span>
+              <span class="skill-pill"><img src="https://cdn.simpleicons.org/github/white" alt="" loading="lazy" />Git &amp; GitHub</span>
+              <span class="skill-pill">Midtrans</span>
+              <span class="skill-pill">ArcGIS</span>
+              <span class="skill-pill"><img src="https://cdn.simpleicons.org/wordpress/white" alt="" loading="lazy" />WordPress</span>
+              <span class="skill-pill">Microsoft Office</span>
+            </div>
+          </div>
+
+          <!-- Group 3 -->
+          <div class="skill-card">
+            <div class="skill-card__header">
+              <span class="skill-card__idx">03 //</span>
+              <span class="skill-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="8.5" y="14" width="7" height="7" rx="1"/><path d="M6.5 10v2h11v-2M12 12v2"/></svg>
+              </span>
+            </div>
+            <h3 data-i18n="skillCat3">Methods &amp; Analysis</h3>
+            <p data-i18n="skillDesc3">Memodelkan kebutuhan sebelum menulis kode, lalu memvalidasi hasilnya dengan pengujian yang terukur.</p>
+            <div class="skill-pills">
+              <span class="skill-pill">Software Engineering</span>
+              <span class="skill-pill">Requirements Analysis (SRS)</span>
+              <span class="skill-pill">System Design (ICONIX)</span>
+              <span class="skill-pill">UML Modeling</span>
+              <span class="skill-pill">Black-Box Testing</span>
+              <span class="skill-pill">Software QA &amp; Testing</span>
+              <span class="skill-pill">Decision Support (WSM &amp; SAW)</span>
+              <span class="skill-pill">Project Management</span>
+            </div>
+          </div>
+
+          <!-- Group 4 -->
+          <div class="skill-card">
+            <div class="skill-card__header">
+              <span class="skill-card__idx">04 //</span>
+              <span class="skill-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              </span>
+            </div>
+            <h3 data-i18n="skillCat4">Soft Skills</h3>
+            <p data-i18n="skillDesc4">Keahlian interpersonal dalam memecahkan masalah dan berkolaborasi.</p>
+            <div class="skill-pills">
+              <span class="skill-pill skill-pill--soft" data-i18n="soft1">Berpikir analitis</span>
+              <span class="skill-pill skill-pill--soft" data-i18n="soft2">Komunikasi stakeholder</span>
+              <span class="skill-pill skill-pill--soft" data-i18n="soft3">Pemecahan masalah</span>
+              <span class="skill-pill skill-pill--soft" data-i18n="soft4">Kerja sama tim</span>
+              <span class="skill-pill skill-pill--soft" data-i18n="soft5">Manajemen waktu</span>
+              <span class="skill-pill skill-pill--soft" data-i18n="soft6">Perhatian terhadap detail</span>
+              <span class="skill-pill skill-pill--soft" data-i18n="soft7">Berpikir kritis</span>
+              <span class="skill-pill skill-pill--soft" data-i18n="soft8">Semangat belajar</span>
+            </div>
+            <div class="skill-langs">
+              <span class="skill-langs__label" data-i18n="langLabel">Bahasa</span>
+              <span class="skill-pill" data-i18n="lang1">Indonesia · Native</span>
+              <span class="skill-pill" data-i18n="lang2">Inggris · Fasih</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 · CERTIFICATIONS ============ -->
+    <section class="section" id="certifications" aria-labelledby="cert-title">
+      <div class="container">
+        <header class="sec-head reveal">
+          <span class="section-badge" data-i18n="secCertsBadge">Kredensial</span>
+          <h2 class="sec-title" id="cert-title">
+            <span data-i18n="secCertsTitlePre">Sertifikasi</span>
+            <em data-i18n="secCertsTitleEm">Resmi</em>
+          </h2>
+          <p class="sec-desc" data-i18n="secCertsDesc">
+            Validasi kompetensi di bidang Cloud Computing dan Manajemen Basis Data.
+          </p>
+        </header>
+
+        <div class="cert-grid">
+          <!-- Cert 1: Alibaba Cloud ACA -->
+          <article class="cert-card reveal">
+            <div class="cert-card__media" data-open-cert="assets/images/certs/alibaba-cloud-aca.jpg" data-cert-name="Alibaba Cloud Certified Associate (ACA) — Cloud Computing">
+              <img src="assets/images/certs/alibaba-cloud-aca.jpg" alt="Alibaba Cloud Certified Associate (ACA) Cloud Computing - Arsyad Grant Saputro" loading="lazy" />
+              <div class="cert-card__zoom-hint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                <span data-i18n="certZoom">Perbesar Sertifikat</span>
+              </div>
+            </div>
+            <div class="cert-card__body">
+              <div class="cert-card__issuer">
+                <span class="cert-card__logo"><img src="https://cdn.simpleicons.org/alibabacloud/FF6A00" alt="Alibaba Cloud" loading="lazy" /></span>
+                <span>Alibaba Cloud</span>
+              </div>
+              <h4 data-i18n="cert1Title">Alibaba Cloud Certified Associate</h4>
+              <p data-i18n="cert1Sub">Cloud Computing · ID: IACA01241100180382L</p>
+              <div class="cert-card__foot">
+                <span data-i18n="certIssued">DITERBITKAN</span>
+                <b>Nov 2024 · Valid 2026</b>
+              </div>
+            </div>
+          </article>
+
+          <!-- Cert 2: Oracle SQL -->
+          <article class="cert-card reveal" style="--d:.08s">
+            <div class="cert-card__media" data-open-cert="assets/images/certs/oracle-database-sql.png" data-cert-name="Database Programming with SQL — Oracle Academy">
+              <img src="assets/images/certs/oracle-database-sql.png" alt="Database Programming with SQL - Oracle Academy - Arsyad Grant Saputro" loading="lazy" />
+              <div class="cert-card__zoom-hint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                <span data-i18n="certZoom">Perbesar Sertifikat</span>
+              </div>
+            </div>
+            <div class="cert-card__body">
+              <div class="cert-card__issuer">
+                <span class="cert-card__logo"><svg viewBox="0 0 24 24" width="20" height="20" fill="#EA1B22"><path d="M16.5 4h-9a8 8 0 0 0 0 16h9a8 8 0 0 0 0-16zm-.3 12.8h-8.4a4.8 4.8 0 1 1 0-9.6h8.4a4.8 4.8 0 1 1 0 9.6z"/></svg></span>
+                <span>Oracle Academy</span>
+              </div>
+              <h4 data-i18n="cert2Title">Database Programming with SQL</h4>
+              <p data-i18n="cert2Sub">Mengimplementasikan desain basis data menjadi database fisik dengan SQL: sintaks dasar dan aturan menyusun statement yang valid.</p>
+              <div class="cert-card__foot">
+                <span data-i18n="certIssued">DITERBITKAN</span>
+                <b>6 Juni 2024</b>
+              </div>
+            </div>
+          </article>
+
+          <!-- Cert 3: Oracle Design -->
+          <article class="cert-card reveal" style="--d:.16s">
+            <div class="cert-card__media" data-open-cert="assets/images/certs/oracle-database-design.png" data-cert-name="Database Design — Oracle Academy">
+              <img src="assets/images/certs/oracle-database-design.png" alt="Database Design - Oracle Academy - Arsyad Grant Saputro" loading="lazy" />
+              <div class="cert-card__zoom-hint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                <span data-i18n="certZoom">Perbesar Sertifikat</span>
+              </div>
+            </div>
+            <div class="cert-card__body">
+              <div class="cert-card__issuer">
+                <span class="cert-card__logo"><svg viewBox="0 0 24 24" width="20" height="20" fill="#EA1B22"><path d="M16.5 4h-9a8 8 0 0 0 0 16h9a8 8 0 0 0 0-16zm-.3 12.8h-8.4a4.8 4.8 0 1 1 0-9.6h8.4a4.8 4.8 0 1 1 0 9.6z"/></svg></span>
+                <span>Oracle Academy</span>
+              </div>
+              <h4 data-i18n="cert3Title">Database Design</h4>
+              <p data-i18n="cert3Sub">Menganalisis skenario bisnis dan membuat model data (ERD hingga normalisasi), ditutup proyek merancang solusi basis data untuk sebuah organisasi.</p>
+              <div class="cert-card__foot">
+                <span data-i18n="certIssued">DITERBITKAN</span>
+                <b>25 Des 2023</b>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 05 · CONNECT SECTION ============ -->
+    <section class="section" id="connect" aria-labelledby="connect-title">
+      <div class="container">
+        <div class="connect-wrapper reveal">
+          <span class="section-badge" data-i18n="secConnectBadge">Kontak &amp; Kolaborasi</span>
+          
+          <h2 class="connect__title" id="connect-title">
+            <span data-i18n="secConnectTitlePre">Punya sistem yang</span> <br />
+            <span class="serif-em" data-i18n="secConnectTitleEm">perlu dibangun?</span>
+          </h2>
+          
+          <p class="connect__desc" data-i18n="secConnectDesc">
+            Saya terbuka untuk peluang kerja full-stack / backend / frontend developer, proyek kolaborasi, maupun sekadar berdiskusi seputar arsitektur sistem.
+          </p>
+
+          <div class="email-box">
+            <a href="mailto:arsyadgrants@gmail.com" id="email-link">arsyadgrants@gmail.com</a>
+            <button type="button" class="copy-btn" id="copyEmail" data-email="arsyadgrants@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span data-i18n="copyEmailBtn">Salin email</span>
+            </button>
+          </div>
+
+          <div class="socials-grid">
+            <a class="social-item" href="mailto:arsyadgrants@gmail.com" id="social-email">
+              <div class="social-item__top">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+              </div>
+              <div>
+                <small>Email</small>
+                <span>arsyadgrants@gmail.com</span>
+              </div>
+            </a>
+
+            <a class="social-item" href="https://linkedin.com/in/arsyadgrants" target="_blank" rel="noopener me" id="social-linkedin">
+              <div class="social-item__top">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+              </div>
+              <div>
+                <small>LinkedIn</small>
+                <span>in/arsyadgrants</span>
+              </div>
+            </a>
+
+            <a class="social-item" href="https://github.com/Syadgs" target="_blank" rel="noopener me" id="social-github">
+              <div class="social-item__top">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3"/></svg>
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+              </div>
+              <div>
+                <small>GitHub</small>
+                <span>github.com/Syadgs</span>
+              </div>
+            </a>
+
+            <div class="social-item" id="social-location">
+              <div class="social-item__top">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <small data-i18n="connectLocLabel">Lokasi</small>
+                <span>Semarang, Indonesia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© <span id="year">2026</span> Arsyad Grant Saputro. <span data-i18n="footerCrafted">Dibuat dengan dedikasi &amp; passion rekayasa perangkat lunak.</span></span>
+      <span class="footer__clock">Semarang · <b id="clock">--:--</b> WIB</span>
+      <a href="#hero" class="to-top" id="to-top" data-i18n="footerToTop">Kembali ke atas ↑</a>
+    </div>
+  </footer>
+
+  <!-- ============ RESUME MODAL ============ -->
+  <div class="modal" id="resumeModal" role="dialog" aria-modal="true" aria-labelledby="resume-name" aria-hidden="true">
+    <div class="modal__backdrop" data-close-resume></div>
+    <div class="modal__dialog">
+      <div class="modal__head">
+        <span class="section-badge" style="margin-bottom:0">CV // ARSYAD.G.S.PDF</span>
+        <div class="modal__actions">
+          <a href="assets/docs/CV-Arsyad-Grant-Saputro.pdf" target="_blank" rel="noopener" class="btn btn--ghost" id="resume-view">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <span data-i18n="resumeOpenTab">Buka PDF Asli</span>
+          </a>
+          <a href="assets/docs/CV-Arsyad-Grant-Saputro.pdf" download="CV-Arsyad-Grant-Saputro.pdf" class="btn btn--primary" id="resume-download">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            <span data-i18n="resumeDownload">Unduh PDF</span>
+          </a>
+          <button type="button" class="modal__close" data-close-resume aria-label="Tutup resume" id="resume-close">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="resume-body resume-body--images" id="resume-name" aria-label="Resume Arsyad Grant Saputro">
+        <figure class="resume-page" data-open-cert="assets/docs/resume-page-1.jpg" data-cert-name="Resume Arsyad Grant Saputro — Halaman 1">
+          <figcaption class="resume-page__label">PAGE 01 // 02</figcaption>
+          <img src="assets/docs/resume-page-1.jpg" alt="Resume Arsyad Grant Saputro — Halaman 1" loading="lazy" />
+        </figure>
+        <figure class="resume-page" data-open-cert="assets/docs/resume-page-2.jpg" data-cert-name="Resume Arsyad Grant Saputro — Halaman 2">
+          <figcaption class="resume-page__label">PAGE 02 // 02</figcaption>
+          <img src="assets/docs/resume-page-2.jpg" alt="Resume Arsyad Grant Saputro — Halaman 2" loading="lazy" />
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CERTIFICATE LIGHTBOX MODAL ============ -->
+  <div class="modal cert-modal" id="certModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="certModalTitle">
+    <div class="modal__backdrop" id="certModalBackdrop"></div>
+    <div class="modal__dialog cert-modal__dialog">
+      <div class="modal__head">
+        <h3 id="certModalTitle" class="cert-modal__title">Pratinjau Sertifikat</h3>
+        <div class="modal__actions">
+          <a id="certModalDownload" href="#" download class="btn btn--ghost cert-modal__download-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            <span data-i18n="btnDownloadCert">Unduh Gambar</span>
+          </a>
+          <button type="button" class="modal__close" id="certModalClose" aria-label="Tutup sertifikat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="cert-modal__body">
+        <img id="certModalImg" src="" alt="Pratinjau Sertifikat Asli" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+    <span id="toastText">Email disalin ke clipboard!</span>
+  </div>
+
+  <!-- Translation Dictionary -->
+  <script src="js/translations.js?v=deploy2"></script>
+  <!-- Main Application Logic -->
+  <script src="js/main.js?v=deploy2" defer></script>
+</body>
+</html>

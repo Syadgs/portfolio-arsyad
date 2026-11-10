@@ -1,0 +1,12 @@
+# OS & Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local helper scripts (not needed in production)
+buka_website.bat
+server.js
+PANDUAN_FOTO_DAN_ASET.md
+scratch/
+

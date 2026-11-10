@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <linearGradient id="epbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#140706"/>
+      <stop offset="100%" stop-color="#090303"/>
+    </linearGradient>
+    <radialGradient id="epglow" cx="50%" cy="35%" r="50%">
+      <stop offset="0%" stop-color="#ff7a3d" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#ff7a3d" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="380" rx="14" fill="url(#epbg)"/>
+  <circle cx="300" cy="150" r="140" fill="url(#epglow)"/>
+  <rect x="16" y="16" width="568" height="348" rx="10" fill="none" stroke="rgba(255,122,61,0.2)" stroke-dasharray="6 4"/>
+  <g transform="translate(300, 160)" text-anchor="middle">
+    <rect x="-28" y="-28" width="56" height="56" rx="14" fill="rgba(255, 122, 61, 0.12)" stroke="#ff7a3d" stroke-width="1.5"/>
+    <path d="M-12 -4 L0 -16 L12 -4 M0 -16 L0 12" stroke="#ff7a3d" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <text y="54" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="600" fill="#ffffff">Dokumentasi Pengalaman</text>
+    <text y="74" font-family="'JetBrains Mono', monospace" font-size="11" fill="#ff7a3d">assets/images/experience/...</text>
+  </g>
+</svg>

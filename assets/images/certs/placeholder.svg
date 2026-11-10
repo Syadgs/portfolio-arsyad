@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" width="500" height="320">
+  <defs>
+    <linearGradient id="cbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+  </defs>
+  <rect width="500" height="320" rx="16" fill="url(#cbg)"/>
+  <rect x="16" y="16" width="468" height="288" rx="12" fill="none" stroke="rgba(255,255,255,0.08)" stroke-dasharray="6 4"/>
+  <g transform="translate(250, 140)" text-anchor="middle">
+    <circle r="32" fill="rgba(245, 158, 11, 0.12)" stroke="#f59e0b" stroke-width="1.5"/>
+    <path d="M-10 2 L-3 9 L11 -5" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text y="52" font-family="'JetBrains Mono', monospace" font-size="12" fill="#94a3b8">assets/images/certs/...</text>
+  </g>
+</svg>

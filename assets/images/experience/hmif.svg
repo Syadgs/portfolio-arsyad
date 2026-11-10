@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <linearGradient id="expBg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#180e0c" />
+      <stop offset="100%" stop-color="#0a0504" />
+    </linearGradient>
+    <radialGradient id="expGlow3" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="600" height="380" rx="14" fill="url(#expBg3)" />
+  <circle cx="300" cy="140" r="180" fill="url(#expGlow3)" />
+  <rect x="16" y="16" width="568" height="348" rx="10" fill="none" stroke="rgba(245,158,11,0.25)" stroke-dasharray="6 4" />
+
+  <!-- Content Box -->
+  <g transform="translate(300, 150)" text-anchor="middle">
+    <!-- Analytics / Organization Icon -->
+    <rect x="-36" y="-60" width="72" height="72" rx="16" fill="rgba(245,158,11,0.15)" stroke="#fbbf24" stroke-width="1.5" />
+    <path d="M-14 -12 L-6 -26 L6 -18 L14 -32" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <circle cx="14" cy="-32" r="3.5" fill="#f59e0b" />
+
+    <text y="36" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700" fill="#ffffff">Dokumentasi HMIF Universitas Diponegoro</text>
+    <text y="58" font-family="'JetBrains Mono', monospace" font-size="11" fill="#fbbf24">STAFF OF RESEARCH &amp; DEVELOPMENT · 2023 – 2024</text>
+    <text y="78" font-family="sans-serif" font-size="12" fill="#a89a98">Riset Organisasi, Survei Evaluasi, &amp; Analisis Kinerja Departemen</text>
+
+    <!-- Slot Path Tag -->
+    <rect x="-170" y="105" width="340" height="32" rx="16" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.3)" />
+    <text y="125" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#fde68a">
+      assets/images/experience/hmif.jpg
+    </text>
+  </g>
+</svg>

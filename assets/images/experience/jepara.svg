@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380">
+  <defs>
+    <linearGradient id="expBg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1926" />
+      <stop offset="100%" stop-color="#050d14" />
+    </linearGradient>
+    <radialGradient id="expGlow2" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="600" height="380" rx="14" fill="url(#expBg2)" />
+  <circle cx="300" cy="140" r="180" fill="url(#expGlow2)" />
+  <rect x="16" y="16" width="568" height="348" rx="10" fill="none" stroke="rgba(14,165,233,0.25)" stroke-dasharray="6 4" />
+
+  <!-- Content Box -->
+  <g transform="translate(300, 150)" text-anchor="middle">
+    <!-- GIS Compass & Pin Icon -->
+    <rect x="-36" y="-60" width="72" height="72" rx="16" fill="rgba(14,165,233,0.15)" stroke="#38bdf8" stroke-width="1.5" />
+    <circle cx="0" cy="-24" r="16" fill="none" stroke="#38bdf8" stroke-width="2" />
+    <path d="M0 -34 L0 -14 M-10 -24 L10 -24" stroke="#38bdf8" stroke-width="2" />
+    <circle cx="0" cy="-24" r="4" fill="#2dd4bf" />
+
+    <text y="36" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700" fill="#ffffff">Dokumentasi Magang Dinas Perikanan Jepara</text>
+    <text y="58" font-family="'JetBrains Mono', monospace" font-size="11" fill="#38bdf8">SPATIAL DATABASE DEVELOPER INTERN · JUL – AGU 2024</text>
+    <text y="78" font-family="sans-serif" font-size="12" fill="#94a3b8">Survei Lapangan Spasial Kelautan &amp; Pemetaan ArcGIS</text>
+
+    <!-- Slot Path Tag -->
+    <rect x="-170" y="105" width="340" height="32" rx="16" fill="rgba(14,165,233,0.12)" stroke="rgba(14,165,233,0.3)" />
+    <text y="125" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#7dd3fc">
+      assets/images/experience/jepara.jpg
+    </text>
+  </g>
+</svg>
