@@ -1070,9 +1070,14 @@ body.is-red-optics .optics-toggle {
 }
 
 /* ---------- 14. Certifications ---------- */
-.cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.cert-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; }
 .cert-card {
   display: flex; flex-direction: column;
+  grid-column: span 2;
+}
+.cert-card:nth-child(1),
+.cert-card:nth-child(2) {
+  grid-column: span 3;
 }
 .cert-card:hover {
   border-color: var(--line-strong); background: var(--bg-card-hover); transform: translateY(-3px);
@@ -1362,6 +1367,7 @@ body.is-red-optics .optics-toggle {
   .project-card__body { grid-template-columns: 1fr; gap: 30px; }
   .mini-grid { grid-template-columns: 1fr 1fr; }
   .cert-grid { grid-template-columns: 1fr 1fr; }
+  .cert-card, .cert-card:nth-child(1), .cert-card:nth-child(2) { grid-column: auto; }
   .socials-grid { grid-template-columns: 1fr 1fr; }
 }
 
