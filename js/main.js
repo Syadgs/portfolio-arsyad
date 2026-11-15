@@ -458,7 +458,7 @@
       }
     }
 
-    if (y <= 2) {
+    if (y <= 2 || innerWidth <= 1024) {
       if (heroContent) {
         heroContent.style.transform = "";
         heroContent.style.opacity = "";
@@ -475,6 +475,18 @@
       if (heroImg) heroImg.style.transform = `scale(${1 + t * 0.1})`;
     }
   };
+
+  // Ensure background video auto-plays smoothly on desktop & mobile
+  const bgVideo = $("#bgVideo");
+  if (bgVideo) {
+    bgVideo.muted = true;
+    bgVideo.playsInline = true;
+    const tryPlayVideo = () => {
+      if (bgVideo.paused) bgVideo.play().catch(() => {});
+    };
+    tryPlayVideo();
+    window.addEventListener("pointerdown", tryPlayVideo, { once: true, passive: true });
+  }
 
   const requestHud = () => {
     if (!scrollTicking) {
