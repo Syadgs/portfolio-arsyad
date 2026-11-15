@@ -49,19 +49,107 @@
   applyLanguage(currentLang);
 
   /* ==========================================================================
-     2B. DARKNODE TACTICAL TELEMETRY & RED OPTICS MODE
+     2A. TACTICAL AVIONICS BOOT LOADER (ZRK-style entry sequence)
+     ========================================================================== */
+  const tacticalLoader = $("#tacticalLoader");
+  if (tacticalLoader) {
+    const loaderPct = $("#loaderPct");
+    const loaderBar = $("#loaderBar");
+    const loaderStatus = $("#loaderStatus");
+    let loaderFinished = false;
+    let loaderRaf = 0;
+
+    const finishLoader = () => {
+      if (loaderFinished) return;
+      loaderFinished = true;
+      cancelAnimationFrame(loaderRaf);
+      if (loaderPct) loaderPct.textContent = "100%";
+      if (loaderBar) loaderBar.style.transform = "scaleX(1)";
+      if (loaderStatus) loaderStatus.textContent = "SYSTEM READY // ONLINE";
+      tacticalLoader.classList.add("is-done");
+      setTimeout(() => {
+        tacticalLoader.style.display = "none";
+      }, 750);
+    };
+
+    if (reduceMotion) {
+      finishLoader();
+    } else {
+      const bootStart = performance.now();
+      const BOOT_DURATION = 1200;
+      const tickLoader = (now) => {
+        if (loaderFinished) return;
+        const p = Math.min((now - bootStart) / BOOT_DURATION, 1);
+        // Smooth ease-out cubic
+        const eased = 1 - Math.pow(1 - p, 3);
+        const pct = Math.round(eased * 100);
+        if (loaderPct) loaderPct.textContent = String(pct).padStart(3, "0") + "%";
+        if (loaderBar) loaderBar.style.transform = `scaleX(${eased.toFixed(3)})`;
+        if (loaderStatus) {
+          if (pct < 38) loaderStatus.textContent = "CALIBRATING OPTICS...";
+          else if (pct < 78) loaderStatus.textContent = "SYNCING TELEMETRY // SMG-ID...";
+          else loaderStatus.textContent = "TARGET LOCK ACQUIRED // 100%";
+        }
+        if (p < 1) {
+          loaderRaf = requestAnimationFrame(tickLoader);
+        } else {
+          setTimeout(finishLoader, 120);
+        }
+      };
+      loaderRaf = requestAnimationFrame(tickLoader);
+
+      // Click or Escape/Enter/Space skips boot sequence immediately
+      tacticalLoader.addEventListener("click", finishLoader, { once: true });
+      window.addEventListener(
+        "keydown",
+        (e) => {
+          if (e.key === "Escape" || e.key === " " || e.key === "Enter") finishLoader();
+        },
+        { once: true }
+      );
+    }
+  }
+
+  /* ==========================================================================
+     2B. DARKNODE TACTICAL TELEMETRY, LIVE CLOCK & RED OPTICS MODE
      ========================================================================== */
   const coordReadout = $("#coordReadout");
-  if (coordReadout) {
-    window.addEventListener(
-      "pointermove",
-      (e) => {
-        const x = String(Math.round(e.clientX)).padStart(4, "0");
-        const y = String(Math.round(e.clientY)).padStart(4, "0");
-        coordReadout.textContent = `X:${x} Y:${y}`;
-      },
-      { passive: true }
-    );
+  const hudCornerXY = $("#hudCornerXY");
+  let pointerRollDeg = 0;
+
+  window.addEventListener(
+    "pointermove",
+    (e) => {
+      const x = String(Math.round(e.clientX)).padStart(4, "0");
+      const y = String(Math.round(e.clientY)).padStart(4, "0");
+      if (coordReadout) coordReadout.textContent = `X:${x} Y:${y}`;
+      if (hudCornerXY) hudCornerXY.textContent = `POS // X:${x} Y:${y}`;
+      pointerRollDeg = ((e.clientX / Math.max(innerWidth, 1)) - 0.5) * 8;
+    },
+    { passive: true }
+  );
+
+  // Live Semarang (WIB / Asia/Jakarta) second-by-second clock in Navbar
+  const navClock = $("#navClock");
+  if (navClock) {
+    const updateClock = () => {
+      try {
+        const t = new Intl.DateTimeFormat("en-GB", {
+          timeZone: "Asia/Jakarta",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: false,
+        }).format(new Date());
+        navClock.textContent = `SMG, ${t}`;
+      } catch {
+        const d = new Date();
+        const pad2 = (n) => String(n).padStart(2, "0");
+        navClock.textContent = `SMG, ${pad2(d.getHours())}:${pad2(d.getMinutes())}:${pad2(d.getSeconds())}`;
+      }
+    };
+    updateClock();
+    setInterval(updateClock, 1000);
   }
 
   const opticsToggle = $("#opticsToggle");
@@ -251,20 +339,33 @@
   ].map((s) => ({ ...s, el: document.getElementById(s.id) })).filter((s) => s.el);
 
   const progressBar = $("#scrollProgressBar");
+  const navTickFill = $("#navTickFill");
   const hudIdx = $("#hudIdx");
   const hudFill = $("#hudFill");
   const hudLabel = $("#hudLabel");
   const hudPct = $("#hudPct");
   const watermark = $("#sectionWatermark");
   const sweep = $("#scanSweep");
+  const bgRadarSvg = $("#bgRadarSvg");
+  const hudAltitude = $("#hudAltitude");
+  const hudHeading = $("#hudHeading");
+  const hudVelocity = $("#hudVelocity");
+  const vfHorizon = $("#vfHorizon");
+  const vfPitchDeg = $("#vfPitchDeg");
+  const vfTargetTag = $("#vfTargetTag");
   const heroContent = $(".hero__content");
   const heroCard = $("#showcaseCard");
   const heroImg = $(".profile-photo img");
   const gridBg = $(".tactical-grid-bg");
   const heroEl = $("#hero");
+  const lockableCards = $$(
+    ".project-card, .mini-card, .timeline-card, .edu-card, .skill-card, .cert-card"
+  );
 
   let currentSector = -1;
   let scrollTicking = false;
+  let lastScrollY = window.scrollY;
+  let velResetTimer = 0;
 
   const enterSector = (i, silent = false) => {
     if (i === currentSector) return;
@@ -273,6 +374,7 @@
     document.body.dataset.sector = SECTORS[i].id;
     if (hudIdx) hudIdx.textContent = num;
     if (hudLabel) scramble(hudLabel, SECTORS[i].label, 450);
+    if (vfTargetTag) vfTargetTag.textContent = `SEC // ${num}_${SECTORS[i].label}`;
     if (watermark) {
       watermark.textContent = num;
       watermark.classList.remove("is-switching");
@@ -293,8 +395,29 @@
     const p = max > 0 ? Math.min(y / max, 1) : 0;
 
     if (progressBar) progressBar.style.transform = `scaleX(${p})`;
+    if (navTickFill) navTickFill.style.transform = `scaleX(${p})`;
     if (hudFill) hudFill.style.transform = `scaleY(${p})`;
     if (hudPct) hudPct.textContent = String(Math.round(p * 100)).padStart(3, "0") + "%";
+
+    // Live ZRK-style bottom-right telemetry (ALT / HDG / VEL)
+    const dy = Math.abs(y - lastScrollY);
+    lastScrollY = y;
+    if (hudAltitude) {
+      const altMeters = Math.round(p * 6300);
+      hudAltitude.textContent = `ALT: ${String(altMeters).padStart(4, "0")}M`;
+    }
+    if (hudHeading) {
+      const hdg = Math.round(p * 360) % 360;
+      hudHeading.textContent = `HDG: ${String(hdg).padStart(3, "0")}°`;
+    }
+    if (hudVelocity) {
+      const vel = Math.min(dy * 0.85, 99.9);
+      hudVelocity.textContent = `VEL: ${vel.toFixed(1).padStart(4, "0")}`;
+      clearTimeout(velResetTimer);
+      velResetTimer = setTimeout(() => {
+        if (hudVelocity) hudVelocity.textContent = "VEL: 00.0";
+      }, 180);
+    }
 
     // Active sector = last section whose top passed 45% of viewport
     const probe = innerHeight * 0.45;
@@ -302,13 +425,39 @@
     SECTORS.forEach((s, i) => { if (s.el.getBoundingClientRect().top <= probe) idx = i; });
     enterSector(idx, currentSector === -1);
 
+    // Scroll-driven target lock on cards passing through the viewport center zone
+    const lockTop = innerHeight * 0.25;
+    const lockBottom = innerHeight * 0.75;
+    lockableCards.forEach((card) => {
+      const r = card.getBoundingClientRect();
+      const mid = r.top + r.height * 0.5;
+      const locked = r.bottom > lockTop && r.top < lockBottom && mid >= lockTop && mid <= lockBottom;
+      card.classList.toggle("is-target-locked", locked);
+    });
+
     if (reduceMotion) return;
+
+    // Background Radar HUD rotates and scales continuously with scroll
+    if (bgRadarSvg) {
+      const deg = (y * 0.085).toFixed(1);
+      const scale = (1 + Math.sin(p * Math.PI) * 0.08).toFixed(3);
+      bgRadarSvg.style.transform = `rotate(${deg}deg) scale(${scale})`;
+    }
 
     // Grid drifts slower than content (depth)
     if (gridBg) gridBg.style.backgroundPosition = `0 ${-y * 0.15}px`;
 
-    // Hero exits like a camera pulling away
+    // Hero exits like a camera pulling away + Viewfinder Artificial Horizon pitch/roll
     const heroH = heroEl ? heroEl.offsetHeight : innerHeight;
+    if (vfHorizon) {
+      const pitchDeg = Math.max(-18, Math.min(18, (y / Math.max(heroH, 1)) * 16));
+      const pitchShift = pitchDeg * 1.4;
+      vfHorizon.style.transform = `translate3d(-50%, calc(-50% + ${pitchShift.toFixed(1)}px), 0) rotate(${pointerRollDeg.toFixed(1)}deg)`;
+      if (vfPitchDeg) {
+        vfPitchDeg.textContent = `${pitchDeg >= 0 ? "+" : ""}${pitchDeg.toFixed(1)}°`;
+      }
+    }
+
     if (y <= 2) {
       if (heroContent) {
         heroContent.style.transform = "";

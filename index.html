@@ -29,7 +29,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=deploy5" />
+  <link rel="stylesheet" href="css/style.css?v=deploy6" />
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -52,13 +52,73 @@
   </script>
 </head>
 <body>
+  <!-- ============ ZRK-Style Tactical Avionics Boot Screen ============ -->
+  <div class="tactical-loader" id="tacticalLoader" role="status" aria-label="Memuat sistem portofolio">
+    <div class="tactical-loader__shutter tactical-loader__shutter--top"></div>
+    <div class="tactical-loader__shutter tactical-loader__shutter--bottom"></div>
+    <div class="tactical-loader__hud">
+      <span class="tl-bracket tl-bracket--tl"></span>
+      <span class="tl-bracket tl-bracket--tr"></span>
+      <span class="tl-bracket tl-bracket--bl"></span>
+      <span class="tl-bracket tl-bracket--br"></span>
+
+      <div class="tactical-loader__top">
+        <span>SYS.BOOT // ARSYAD.G.S</span>
+        <span id="loaderStatus">CALIBRATING OPTICS...</span>
+      </div>
+
+      <div class="tactical-loader__center">
+        <svg class="tactical-loader__radar" viewBox="0 0 160 160" aria-hidden="true">
+          <circle cx="80" cy="80" r="72" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="3 5" opacity="0.45" />
+          <circle cx="80" cy="80" r="52" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25" />
+          <path d="M80 4 V22 M80 138 V156 M4 80 H22 M138 80 H156" stroke="currentColor" stroke-width="1.5" />
+          <circle cx="80" cy="80" r="3" fill="var(--accent)" />
+        </svg>
+        <div class="tactical-loader__pct" id="loaderPct">000%</div>
+      </div>
+
+      <div class="tactical-loader__ruler">
+        <span class="tactical-loader__fill" id="loaderBar"></span>
+      </div>
+
+      <div class="tactical-loader__log" aria-hidden="true">
+        <div>// TARGET ACQUIRED — SEMARANG, ID (06°58'S 110°25'E)</div>
+        <div>// TELEMETRY &amp; HUD MODULES: <b class="ok">[ONLINE]</b> };</div>
+      </div>
+    </div>
+  </div>
+
   <div class="noise-overlay" aria-hidden="true"></div>
   <div class="tactical-grid-bg" aria-hidden="true"></div>
+
+  <!-- ============ Scroll-Driven Background Radar & Compass HUD ============ -->
+  <div class="bg-radar-hud" id="bgRadarHud" aria-hidden="true">
+    <svg class="bg-radar-hud__svg" id="bgRadarSvg" viewBox="0 0 600 600">
+      <circle cx="300" cy="300" r="280" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 8" />
+      <circle cx="300" cy="300" r="210" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5" />
+      <circle cx="300" cy="300" r="130" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="12 6" opacity="0.6" />
+      <line x1="300" y1="10" x2="300" y2="590" stroke="currentColor" stroke-width="1" opacity="0.35" />
+      <line x1="10" y1="300" x2="590" y2="300" stroke="currentColor" stroke-width="1" opacity="0.35" />
+      <polygon points="300,14 295,28 305,28" fill="var(--accent)" />
+    </svg>
+  </div>
 
   <!-- ============ Darknode HUD Layer: scroll progress, sector rail, watermark, scan sweep, cursor ============ -->
   <div class="scroll-progress" aria-hidden="true"><span id="scrollProgressBar"></span></div>
   <div class="scan-sweep" id="scanSweep" aria-hidden="true"></div>
   <div class="section-watermark" id="sectionWatermark" aria-hidden="true">00</div>
+
+  <!-- Bottom Viewport Corner Telemetry (ZRK Style) -->
+  <div class="hud-corner hud-corner--bl" id="hudBottomLeft" aria-hidden="true">
+    <span>POS //</span> <b id="hudCornerXY">X:0000 Y:0000</b>
+  </div>
+  <div class="hud-corner hud-corner--br" id="hudBottomRight" aria-hidden="true">
+    <span id="hudAltitude">ALT: 0000M</span>
+    <span class="sep">·</span>
+    <span id="hudHeading">HDG: 000°</span>
+    <span class="sep">·</span>
+    <b id="hudVelocity">VEL: 00.0</b>
+  </div>
 
   <div class="hud-rail" id="hudRail" aria-hidden="true">
     <span class="hud-rail__idx" id="hudIdx">00</span>
@@ -79,10 +139,13 @@
   <!-- ============ Navigation (Tactical Command Bar) ============ -->
   <header class="nav" id="nav">
     <div class="container nav__inner">
-      <a href="#hero" class="nav__brand" id="nav-brand" aria-label="Kembali ke beranda">
-        <span class="nav__logo">AG</span>
-        <span>ARSYAD // GRANT</span>
-      </a>
+      <div class="nav__brand-group">
+        <a href="#hero" class="nav__brand" id="nav-brand" aria-label="Kembali ke beranda">
+          <span class="nav__logo">AG</span>
+          <span>ARSYAD // GRANT</span>
+        </a>
+        <span class="nav__clock" id="navClock" aria-hidden="true">SMG, 00:00:00</span>
+      </div>
 
       <!-- Center Tactical Command Bar -->
       <nav class="nav__links" aria-label="Navigasi Utama">
@@ -122,6 +185,10 @@
           <span></span><span></span>
         </button>
       </div>
+    </div>
+    <!-- ZRK Avionics Tick-Mark Scroll Ruler -->
+    <div class="nav__tick-ruler" aria-hidden="true">
+      <span class="nav__tick-fill" id="navTickFill"></span>
     </div>
   </header>
 
@@ -206,6 +273,14 @@
                 <span class="viewfinder-reticle vf-bl" aria-hidden="true"></span>
                 <span class="viewfinder-reticle vf-br" aria-hidden="true"></span>
                 <span class="viewfinder-crosshair" aria-hidden="true"></span>
+                <div class="vf-telemetry-overlay" aria-hidden="true">
+                  <span class="vf-rec"><i class="vf-rec__dot"></i> REC // 60FPS</span>
+                  <span class="vf-target-tag" id="vfTargetTag">TGT-01 // LOCKED</span>
+                  <div class="vf-horizon" id="vfHorizon">
+                    <span class="vf-horizon__line"></span>
+                    <span class="vf-horizon__deg" id="vfPitchDeg">+00.0°</span>
+                  </div>
+                </div>
                 <img src="assets/images/profile.png?v=hd" onerror="this.onerror=null;this.src='assets/images/profile.jpg?v=hd'" alt="Foto Arsyad Grant Saputro" width="1016" height="1270" />
               </figure>
 
@@ -1138,10 +1213,19 @@
 
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
-    <div class="container footer__inner">
-      <span>© <span id="year">2026</span> Arsyad Grant Saputro. <span data-i18n="footerCrafted">Dibuat dengan dedikasi &amp; passion rekayasa perangkat lunak.</span></span>
-      <span class="footer__clock">Semarang · <b id="clock">--:--</b> WIB</span>
-      <a href="#hero" class="to-top" id="to-top" data-i18n="footerToTop">Kembali ke atas ↑</a>
+    <div class="container">
+      <div class="footer__monolith" aria-hidden="true">
+        <span class="tl-bracket tl-bracket--tl"></span>
+        <span class="tl-bracket tl-bracket--tr"></span>
+        <span class="tl-bracket tl-bracket--bl"></span>
+        <span class="tl-bracket tl-bracket--br"></span>
+        <div class="footer__wordmark">A R S Y A D <span>//</span> G S</div>
+      </div>
+      <div class="footer__inner">
+        <span>© <span id="year">2026</span> Arsyad Grant Saputro. <span data-i18n="footerCrafted">Dibuat dengan dedikasi &amp; passion rekayasa perangkat lunak.</span></span>
+        <span class="footer__clock">Semarang · <b id="clock">--:--</b> WIB</span>
+        <a href="#hero" class="to-top" id="to-top" data-i18n="footerToTop">Kembali ke atas ↑</a>
+      </div>
     </div>
   </footer>
 
@@ -1208,8 +1292,8 @@
   </div>
 
   <!-- Translation Dictionary -->
-  <script src="js/translations.js?v=deploy5"></script>
+  <script src="js/translations.js?v=deploy6"></script>
   <!-- Main Application Logic -->
-  <script src="js/main.js?v=deploy5" defer></script>
+  <script src="js/main.js?v=deploy6" defer></script>
 </body>
 </html>
