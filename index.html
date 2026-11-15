@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="snap-y snap-mandatory">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,7 +29,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=deploy7" />
+  <link rel="stylesheet" href="css/style.css?v=deploy8" />
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -220,7 +220,7 @@
 
   <main>
     <!-- ============ 00 · HERO SECTION ============ -->
-    <section class="hero" id="hero" aria-labelledby="hero-title">
+    <section class="hero min-h-screen snap-start" id="hero" aria-labelledby="hero-title">
       <div class="container">
         <div class="hero__grid">
           <!-- Left: Simplified Name, Role, & Introduction -->
@@ -339,30 +339,30 @@
           </div>
         </div>
       </div>
+
+      <!-- ============ TECH MARQUEE (Docked at bottom of Hero Screen) ============ -->
+      <div class="marquee" aria-label="Teknologi yang digunakan">
+        <div class="marquee__track" id="marqueeTrack">
+          <span class="marquee__item"><img src="https://cdn.simpleicons.org/laravel" alt="" loading="lazy" />Laravel</span>
+          <span class="marquee__item"><img src="https://cdn.simpleicons.org/react" alt="" loading="lazy" />React.js</span>
+          <span class="marquee__item"><img src="https://cdn.simpleicons.org/nextdotjs/white" alt="" loading="lazy" />Next.js</span>
+          <span class="marquee__item"><img src="https://cdn.simpleicons.org/typescript" alt="" loading="lazy" />TypeScript</span>
+          <span class="marquee__item"><img src="https://cdn.simpleicons.org/php" alt="" loading="lazy" />PHP</span>
+          <span class="marquee__item"><img src="https://cdn.simpleicons.org/javascript" alt="" loading="lazy" />JavaScript</span>
+          <span class="marquee__item"><img src="https://cdn.simpleicons.org/tailwindcss" alt="" loading="lazy" />Tailwind CSS</span>
+          <span class="marquee__item"><img src="https://cdn.simpleicons.org/inertia" alt="" loading="lazy" />Inertia.js</span>
+          <span class="marquee__item"><img src="https://cdn.simpleicons.org/mysql" alt="" loading="lazy" />MySQL</span>
+          <span class="marquee__item"><img src="https://cdn.simpleicons.org/postgresql" alt="" loading="lazy" />PostgreSQL</span>
+          <span class="marquee__item"><img src="https://cdn.simpleicons.org/supabase" alt="" loading="lazy" />Supabase</span>
+          <span class="marquee__item"><img src="https://cdn.simpleicons.org/python" alt="" loading="lazy" />Python</span>
+          <span class="marquee__item"><img src="https://cdn.simpleicons.org/git" alt="" loading="lazy" />Git</span>
+          <span class="marquee__item"><img src="https://cdn.simpleicons.org/wordpress/white" alt="" loading="lazy" />WordPress</span>
+        </div>
+      </div>
     </section>
 
-    <!-- ============ TECH MARQUEE ============ -->
-    <div class="marquee" aria-label="Teknologi yang digunakan">
-      <div class="marquee__track" id="marqueeTrack">
-        <span class="marquee__item"><img src="https://cdn.simpleicons.org/laravel" alt="" loading="lazy" />Laravel</span>
-        <span class="marquee__item"><img src="https://cdn.simpleicons.org/react" alt="" loading="lazy" />React.js</span>
-        <span class="marquee__item"><img src="https://cdn.simpleicons.org/nextdotjs/white" alt="" loading="lazy" />Next.js</span>
-        <span class="marquee__item"><img src="https://cdn.simpleicons.org/typescript" alt="" loading="lazy" />TypeScript</span>
-        <span class="marquee__item"><img src="https://cdn.simpleicons.org/php" alt="" loading="lazy" />PHP</span>
-        <span class="marquee__item"><img src="https://cdn.simpleicons.org/javascript" alt="" loading="lazy" />JavaScript</span>
-        <span class="marquee__item"><img src="https://cdn.simpleicons.org/tailwindcss" alt="" loading="lazy" />Tailwind CSS</span>
-        <span class="marquee__item"><img src="https://cdn.simpleicons.org/inertia" alt="" loading="lazy" />Inertia.js</span>
-        <span class="marquee__item"><img src="https://cdn.simpleicons.org/mysql" alt="" loading="lazy" />MySQL</span>
-        <span class="marquee__item"><img src="https://cdn.simpleicons.org/postgresql" alt="" loading="lazy" />PostgreSQL</span>
-        <span class="marquee__item"><img src="https://cdn.simpleicons.org/supabase" alt="" loading="lazy" />Supabase</span>
-        <span class="marquee__item"><img src="https://cdn.simpleicons.org/python" alt="" loading="lazy" />Python</span>
-        <span class="marquee__item"><img src="https://cdn.simpleicons.org/git" alt="" loading="lazy" />Git</span>
-        <span class="marquee__item"><img src="https://cdn.simpleicons.org/wordpress/white" alt="" loading="lazy" />WordPress</span>
-      </div>
-    </div>
-
     <!-- ============ 01 · FEATURED PROJECTS ============ -->
-    <section class="section" id="projects" aria-labelledby="projects-title">
+    <section class="section min-h-screen snap-start" id="projects" aria-labelledby="projects-title">
       <div class="container">
         <header class="sec-head reveal">
           <span class="section-badge" data-i18n="secProjectsBadge">Karya Terpilih</span>
@@ -553,7 +553,7 @@
     </section>
 
     <!-- ============ 02 · PUBLICATIONS & ACHIEVEMENTS ============ -->
-    <section class="section" id="publications" aria-labelledby="publications-title">
+    <section class="section min-h-screen snap-start" id="publications" aria-labelledby="publications-title">
       <div class="container">
         <header class="sec-head reveal">
           <span class="section-badge" data-i18n="secPubsBadge">Publikasi &amp; Inovasi Internasional</span>
@@ -695,7 +695,7 @@
     </section>
 
     <!-- ============ 03 · EXPERIENCE ============ -->
-    <section class="section" id="experience" aria-labelledby="experience-title">
+    <section class="section min-h-screen snap-start" id="experience" aria-labelledby="experience-title">
       <div class="container">
         <header class="sec-head reveal">
           <span class="section-badge" data-i18n="secExpBadge">Perjalanan Karir</span>
@@ -904,7 +904,7 @@
     </section>
 
     <!-- ============ 03 · SKILLS & TECH STACK ============ -->
-    <section class="section" id="skills" aria-labelledby="skills-title">
+    <section class="section min-h-screen snap-start" id="skills" aria-labelledby="skills-title">
       <div class="container">
         <header class="sec-head reveal">
           <span class="section-badge" data-i18n="secSkillsBadge">Keahlian &amp; Teknologi</span>
@@ -1019,7 +1019,7 @@
     </section>
 
     <!-- ============ 04 · CERTIFICATIONS ============ -->
-    <section class="section" id="certifications" aria-labelledby="cert-title">
+    <section class="section min-h-screen snap-start" id="certifications" aria-labelledby="cert-title">
       <div class="container">
         <header class="sec-head reveal">
           <span class="section-badge" data-i18n="secCertsBadge">Kredensial</span>
@@ -1156,7 +1156,7 @@
     </section>
 
     <!-- ============ 05 · CONNECT SECTION ============ -->
-    <section class="section" id="connect" aria-labelledby="connect-title">
+    <section class="section min-h-screen snap-start" id="connect" aria-labelledby="connect-title">
       <div class="container">
         <div class="connect-wrapper reveal">
           <span class="section-badge" data-i18n="secConnectBadge">Kontak &amp; Kolaborasi</span>
@@ -1228,7 +1228,7 @@
   </main>
 
   <!-- ============ FOOTER ============ -->
-  <footer class="footer">
+  <footer class="footer snap-end">
     <div class="container">
       <div class="footer__monolith" aria-hidden="true">
         <span class="tl-bracket tl-bracket--tl"></span>
@@ -1308,8 +1308,8 @@
   </div>
 
   <!-- Translation Dictionary -->
-  <script src="js/translations.js?v=deploy7"></script>
+  <script src="js/translations.js?v=deploy8"></script>
   <!-- Main Application Logic -->
-  <script src="js/main.js?v=deploy7" defer></script>
+  <script src="js/main.js?v=deploy8" defer></script>
 </body>
 </html>
