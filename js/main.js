@@ -216,7 +216,7 @@
     const lineX = $("#hudLineX");
     const lineY = $("#hudLineY");
 
-    const LOCK_SEL = "a, button, label, .chip, .skill-pill, .lang-btn, .social-item";
+    const LOCK_SEL = "a, button, label, .chip, .skill-pill, .lang-btn, .social-item, .scene-pager__dot";
     const SCAN_SEL = "[data-open-cert], .project-card, .mini-card, .timeline-card, .edu-card, .skill-card, .showcase-card";
     const BASE = 34;
 
@@ -362,26 +362,41 @@
     ".project-card, .mini-card, .timeline-card, .edu-card, .skill-card, .cert-card"
   );
 
+  const nav = $("#nav");
+  const navLinks = $$(".nav__link");
+
   let currentSector = -1;
   let scrollTicking = false;
   let lastScrollY = window.scrollY;
   let velResetTimer = 0;
+  let sceneDirector = null;
 
   const enterSector = (i, silent = false) => {
-    if (i === currentSector) return;
+    if (i === currentSector || !SECTORS[i]) return;
     currentSector = i;
     const num = String(i).padStart(2, "0");
-    document.body.dataset.sector = SECTORS[i].id;
+    const sector = SECTORS[i];
+    document.body.dataset.sector = sector.id;
     if (hudIdx) hudIdx.textContent = num;
-    if (hudLabel) scramble(hudLabel, SECTORS[i].label, 450);
-    if (vfTargetTag) vfTargetTag.textContent = `SEC // ${num}_${SECTORS[i].label}`;
+    if (hudLabel) scramble(hudLabel, sector.label, 450);
+    if (vfTargetTag) vfTargetTag.textContent = `SEC // ${num}_${sector.label}`;
+    navLinks.forEach((l) => l.classList.toggle("is-active", l.getAttribute("href") === `#${sector.id}`));
+
+    // Decode section badge when entering a scene
+    const badge = sector.el.querySelector(".sec-head .section-badge, .connect-wrapper > .section-badge");
+    if (badge) {
+      const key = badge.dataset.i18n;
+      const finalText = (key && window.TRANSLATIONS?.[currentLang]?.[key]) || badge.textContent.trim();
+      scramble(badge, finalText, 650);
+    }
+
     if (watermark) {
       watermark.textContent = num;
       watermark.classList.remove("is-switching");
       void watermark.offsetWidth;
       watermark.classList.add("is-switching");
     }
-    if (!silent && sweep && !reduceMotion) {
+    if (!silent && sweep && !reduceMotion && !sceneDirector) {
       sweep.classList.remove("is-active");
       void sweep.offsetWidth;
       sweep.classList.add("is-active");
@@ -390,9 +405,25 @@
 
   const onScrollHud = () => {
     scrollTicking = false;
-    const y = window.scrollY;
-    const max = document.documentElement.scrollHeight - innerHeight;
-    const p = max > 0 ? Math.min(y / max, 1) : 0;
+    let y = window.scrollY;
+    let p = 0;
+    let idx = 0;
+
+    if (sceneDirector) {
+      const m = sceneDirector.metrics();
+      idx = m.index;
+      const sceneEl = sceneDirector.current();
+      const innerY = sceneEl ? sceneEl.scrollTop : 0;
+      y = idx * innerHeight + innerY;
+      p = m.count > 1 ? Math.min(1, (idx + m.inner * 0.85) / (m.count - 1)) : 0;
+      nav?.classList.toggle("is-scrolled", idx > 0 || innerY > 15);
+    } else {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      p = max > 0 ? Math.min(y / max, 1) : 0;
+      const probe = innerHeight * 0.45;
+      SECTORS.forEach((s, i) => { if (s.el.getBoundingClientRect().top <= probe) idx = i; });
+      nav?.classList.toggle("is-scrolled", y > 15);
+    }
 
     if (progressBar) progressBar.style.transform = `scaleX(${p})`;
     if (navTickFill) navTickFill.style.transform = `scaleX(${p})`;
@@ -419,16 +450,17 @@
       }, 180);
     }
 
-    // Active sector = last section whose top passed 45% of viewport
-    const probe = innerHeight * 0.45;
-    let idx = 0;
-    SECTORS.forEach((s, i) => { if (s.el.getBoundingClientRect().top <= probe) idx = i; });
     enterSector(idx, currentSector === -1);
 
     // Scroll-driven target lock on cards passing through the viewport center zone
-    const lockTop = innerHeight * 0.25;
-    const lockBottom = innerHeight * 0.75;
+    const lockTop = innerHeight * 0.22;
+    const lockBottom = innerHeight * 0.78;
+    const activeScene = sceneDirector ? sceneDirector.current() : null;
     lockableCards.forEach((card) => {
+      if (activeScene && !activeScene.contains(card)) {
+        card.classList.remove("is-target-locked");
+        return;
+      }
       const r = card.getBoundingClientRect();
       const mid = r.top + r.height * 0.5;
       const locked = r.bottom > lockTop && r.top < lockBottom && mid >= lockTop && mid <= lockBottom;
@@ -437,7 +469,7 @@
 
     if (reduceMotion) return;
 
-    // Background Radar HUD rotates and scales continuously with scroll
+    // Background Radar HUD rotates and scales continuously with scene/scroll
     if (bgRadarSvg) {
       const deg = (y * 0.085).toFixed(1);
       const scale = (1 + Math.sin(p * Math.PI) * 0.08).toFixed(3);
@@ -447,7 +479,7 @@
     // Grid drifts slower than content (depth)
     if (gridBg) gridBg.style.backgroundPosition = `0 ${-y * 0.15}px`;
 
-    // Hero exits like a camera pulling away + Viewfinder Artificial Horizon pitch/roll
+    // Viewfinder Artificial Horizon pitch/roll
     const heroH = heroEl ? heroEl.offsetHeight : innerHeight;
     if (vfHorizon) {
       const pitchDeg = Math.max(-18, Math.min(18, (y / Math.max(heroH, 1)) * 16));
@@ -458,7 +490,7 @@
       }
     }
 
-    if (y <= 2 || innerWidth <= 1024) {
+    if (sceneDirector || y <= 2 || innerWidth <= 1024) {
       if (heroContent) {
         heroContent.style.transform = "";
         heroContent.style.opacity = "";
@@ -494,30 +526,33 @@
       requestAnimationFrame(onScrollHud);
     }
   };
-  window.addEventListener("scroll", requestHud, { passive: true });
-  window.addEventListener("resize", requestHud, { passive: true });
-  onScrollHud();
 
   /* ==========================================================================
-     3. SCROLL-SPY & SCROLLED NAV
+     3. CINEMATIC SCENE DIRECTOR (GSAP Observer + Fullscreen Stacked Scenes)
      ========================================================================== */
-  const nav = $("#nav");
-  const onScroll = () => nav?.classList.toggle("is-scrolled", window.scrollY > 15);
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
+  if (typeof window.createSceneDirector === "function") {
+    sceneDirector = window.createSceneDirector({
+      scenes: SECTORS.map((s) => s.el),
+      labels: SECTORS.map((s) => s.label),
+      reduceMotion,
+      ignore: "#resumeModal, #certModal, #mobileMenu, .scene-pager, .nav",
+      focusOffset: () => (nav ? nav.offsetHeight + 18 : 76),
+      isBlocked: () =>
+        document.body.classList.contains("is-locked") ||
+        Boolean(tacticalLoader && !tacticalLoader.classList.contains("is-done")),
+      onChange: (idx, prevIdx) => {
+        enterSector(idx, prevIdx === -1);
+        requestHud();
+      },
+      onScroll: requestHud,
+    });
+  }
 
-  const navLinks = $$(".nav__link");
-  const navSections = navLinks.map((l) => $(l.getAttribute("href"))).filter(Boolean);
-  const spy = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (!e.isIntersecting) return;
-        navLinks.forEach((l) => l.classList.toggle("is-active", l.getAttribute("href") === `#${e.target.id}`));
-      });
-    },
-    { rootMargin: "-40% 0px -50% 0px" }
-  );
-  navSections.forEach((s) => spy.observe(s));
+  if (!sceneDirector) {
+    window.addEventListener("scroll", requestHud, { passive: true });
+    window.addEventListener("resize", requestHud, { passive: true });
+    onScrollHud();
+  }
 
   /* ==========================================================================
      8. MOBILE MENU

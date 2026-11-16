@@ -29,7 +29,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=deploy9" />
+  <link rel="stylesheet" href="css/style.css?v=deploy10" />
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -1224,26 +1224,26 @@
           </div>
         </div>
       </div>
+
+      <!-- ============ FOOTER (Docked inside Final Scene) ============ -->
+      <footer class="footer">
+        <div class="container">
+          <div class="footer__monolith" aria-hidden="true">
+            <span class="tl-bracket tl-bracket--tl"></span>
+            <span class="tl-bracket tl-bracket--tr"></span>
+            <span class="tl-bracket tl-bracket--bl"></span>
+            <span class="tl-bracket tl-bracket--br"></span>
+            <div class="footer__wordmark">A R S Y A D <span>//</span> G S</div>
+          </div>
+          <div class="footer__inner">
+            <span>© <span id="year">2026</span> Arsyad Grant Saputro. <span data-i18n="footerCrafted">Dibuat dengan dedikasi &amp; passion rekayasa perangkat lunak.</span></span>
+            <span class="footer__clock">Semarang · <b id="clock">--:--</b> WIB</span>
+            <a href="#hero" class="to-top" id="to-top" data-i18n="footerToTop">Kembali ke atas ↑</a>
+          </div>
+        </div>
+      </footer>
     </section>
   </main>
-
-  <!-- ============ FOOTER ============ -->
-  <footer class="footer snap-end">
-    <div class="container">
-      <div class="footer__monolith" aria-hidden="true">
-        <span class="tl-bracket tl-bracket--tl"></span>
-        <span class="tl-bracket tl-bracket--tr"></span>
-        <span class="tl-bracket tl-bracket--bl"></span>
-        <span class="tl-bracket tl-bracket--br"></span>
-        <div class="footer__wordmark">A R S Y A D <span>//</span> G S</div>
-      </div>
-      <div class="footer__inner">
-        <span>© <span id="year">2026</span> Arsyad Grant Saputro. <span data-i18n="footerCrafted">Dibuat dengan dedikasi &amp; passion rekayasa perangkat lunak.</span></span>
-        <span class="footer__clock">Semarang · <b id="clock">--:--</b> WIB</span>
-        <a href="#hero" class="to-top" id="to-top" data-i18n="footerToTop">Kembali ke atas ↑</a>
-      </div>
-    </div>
-  </footer>
 
   <!-- ============ RESUME MODAL ============ -->
   <div class="modal" id="resumeModal" role="dialog" aria-modal="true" aria-labelledby="resume-name" aria-hidden="true">
@@ -1308,8 +1308,13 @@
   </div>
 
   <!-- Translation Dictionary -->
-  <script src="js/translations.js?v=deploy8"></script>
+  <script src="js/translations.js?v=deploy10"></script>
+  <!-- GSAP Core & Observer Plugin (Local Vendor) -->
+  <script src="js/vendor/gsap.min.js?v=3.15.1" defer></script>
+  <script src="js/vendor/Observer.min.js?v=3.15.1" defer></script>
+  <!-- Cinematic Fullscreen Scene Director -->
+  <script src="js/scene-director.js?v=deploy10" defer></script>
   <!-- Main Application Logic -->
-  <script src="js/main.js?v=deploy8" defer></script>
+  <script src="js/main.js?v=deploy10" defer></script>
 </body>
 </html>

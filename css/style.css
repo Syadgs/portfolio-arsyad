@@ -1927,3 +1927,293 @@ body.is-red-optics .bg-radar-hud {
   .footer__wordmark { font-size: clamp(13px, 4.5vw, 20px); letter-spacing: 0.08em; }
   .tactical-loader__hud { padding: 18px 16px; }
 }
+
+/* ==========================================================================
+   23. CINEMATIC SCENE DIRECTOR — Fullscreen Stacked Scenes & GSAP Transitions
+   ========================================================================== */
+html.is-cinematic,
+html.is-cinematic body {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  scroll-snap-type: none;
+  overscroll-behavior: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+html.is-cinematic::-webkit-scrollbar,
+html.is-cinematic body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+html.is-cinematic main {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  z-index: 2;
+  perspective: 1200px;
+}
+
+html.is-cinematic .scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  border-bottom: 0;
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform, opacity, clip-path;
+  transform-origin: 50% 50%;
+}
+html.is-cinematic .scene::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+html.is-cinematic .scene.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+html.is-cinematic.is-scene-transitioning .scene {
+  pointer-events: none;
+}
+
+html.is-cinematic #connect {
+  padding-bottom: 0;
+  justify-content: space-between;
+}
+html.is-cinematic #connect > .container {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+html.is-cinematic #connect .footer {
+  width: 100%;
+  margin-top: 36px;
+  flex-shrink: 0;
+}
+
+/* Instant reveal reset for incoming scene elements */
+.reveal.reveal--reset {
+  transition: none !important;
+  opacity: 0 !important;
+  transform: translateY(16px) !important;
+}
+
+/* Transition Curtain & Leading Scanline */
+.scene-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(7, 7, 9, 0.92);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  will-change: clip-path, opacity;
+}
+.scene-scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  z-index: 4;
+  background: var(--accent);
+  box-shadow: 0 0 20px 2px rgba(var(--accent-rgb), 0.65);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+.scene-scan__label {
+  position: absolute;
+  right: 68px;
+  bottom: 6px;
+  padding: 2px 8px;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Hide legacy non-interactive rail when interactive Scene Pager is active */
+html.is-cinematic .hud-rail {
+  display: none;
+}
+
+/* ---------- Interactive Side Scene Pager (01 / 07 + Clickable Dots) ---------- */
+.scene-pager {
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 95;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  user-select: none;
+}
+
+.scene-pager__count {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
+  padding: 4px 7px;
+  border: 1px solid var(--line-strong);
+  background: rgba(7, 7, 9, 0.86);
+  backdrop-filter: blur(8px);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+.scene-pager__current {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.scene-pager__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 8px 6px;
+  border: 1px solid var(--line);
+  background: rgba(7, 7, 9, 0.72);
+  backdrop-filter: blur(8px);
+}
+.scene-pager__list li {
+  display: flex;
+}
+
+.scene-pager__dot {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.scene-pager__dot::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--muted);
+  background: transparent;
+  transition: all 0.25s var(--ease);
+}
+.scene-pager__dot:hover::before {
+  border-color: var(--fg);
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.2);
+}
+.scene-pager__dot.is-active::before {
+  width: 8px;
+  height: 14px;
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.55);
+}
+
+.scene-pager__label {
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  transform: translate(6px, -50%);
+  padding: 3px 8px;
+  border: 1px solid var(--line-strong);
+  background: rgba(7, 7, 9, 0.94);
+  color: var(--fg);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.2s var(--ease);
+}
+.scene-pager__dot:hover .scene-pager__label {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, -50%);
+}
+.scene-pager__dot.is-active .scene-pager__label {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Inner-scene overflow progress bar */
+.scene-pager__progress {
+  width: 2px;
+  height: 36px;
+  background: var(--line-strong);
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.scene-pager.has-overflow .scene-pager__progress {
+  opacity: 1;
+}
+.scene-pager__progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+  transform-origin: 50% 0%;
+  transform: scaleY(0);
+}
+
+@media (max-width: 768px) {
+  .scene-pager {
+    right: 6px;
+    gap: 8px;
+  }
+  .scene-pager__count {
+    font-size: 9px;
+    padding: 3px 5px;
+  }
+  .scene-pager__list {
+    padding: 6px 4px;
+    gap: 7px;
+  }
+  .scene-pager__dot {
+    width: 15px;
+    height: 15px;
+  }
+  .scene-pager__label {
+    display: none;
+  }
+  .scene-scan__label {
+    right: 16px;
+  }
+}
